@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as TrainingRouteImport } from './routes/training'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -24,6 +26,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TechnologyRoute = TechnologyRouteImport.update({
@@ -50,6 +62,8 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/industries': typeof IndustriesRoute
   '/technology': typeof TechnologyRoute
   '/training': typeof TrainingRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -58,6 +72,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/industries': typeof IndustriesRoute
   '/technology': typeof TechnologyRoute
   '/training': typeof TrainingRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -67,6 +83,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
+  '/industries': typeof IndustriesRoute
   '/technology': typeof TechnologyRoute
   '/training': typeof TrainingRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -77,6 +95,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/careers'
+    | '/industries'
     | '/technology'
     | '/training'
     | '/services/$slug'
@@ -85,6 +105,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/careers'
+    | '/industries'
     | '/technology'
     | '/training'
     | '/services/$slug'
@@ -93,6 +115,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/careers'
+    | '/industries'
     | '/technology'
     | '/training'
     | '/services/$slug'
@@ -102,6 +126,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CareersRoute: typeof CareersRoute
+  IndustriesRoute: typeof IndustriesRoute
   TechnologyRoute: typeof TechnologyRoute
   TrainingRoute: typeof TrainingRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -122,6 +148,20 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/technology': {
@@ -158,6 +198,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CareersRoute: CareersRoute,
+  IndustriesRoute: IndustriesRoute,
   TechnologyRoute: TechnologyRoute,
   TrainingRoute: TrainingRoute,
   ServicesSlugRoute: ServicesSlugRoute,
