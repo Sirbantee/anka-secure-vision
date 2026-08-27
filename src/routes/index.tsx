@@ -72,7 +72,7 @@ function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/45"
       />
-      <Container className="relative pb-14 pt-40">
+      <Container className="relative pb-10 pt-28">
         <Eyebrow tone="gold">Kampala &middot; Hoima &middot; Since {company.founded}</Eyebrow>
         <h1 className="mt-8 font-display text-[clamp(2.9rem,9.5vw,8.5rem)] leading-[0.94] tracking-[-0.035em]">
           Securing
