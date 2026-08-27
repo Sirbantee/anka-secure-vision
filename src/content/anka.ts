@@ -657,11 +657,28 @@ export const operatingModel = [
 ];
 
 export const navigation = [
-  { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Training", to: "/training" },
-  { label: "Technology", to: "/technology" },
-  { label: "Industries", to: "/industries" },
-  { label: "Careers", to: "/careers" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", to: "/", icon: "home" },
+  { label: "About", to: "/about", icon: "shield" },
+  { label: "Services", to: "/services", icon: "layers" },
+  { label: "Training", to: "/training", icon: "graduation" },
+  { label: "Technology", to: "/technology", icon: "cctv" },
+  { label: "Industries", to: "/industries", icon: "building" },
+  { label: "Careers", to: "/careers", icon: "users" },
+  { label: "Contact", to: "/contact", icon: "phone" },
 ] as const;
+
+/**
+ * Client wordmarks for the home-page marquee. Add `logo: "<url>"` to a client
+ * once artwork is supplied and the image replaces the wordmark automatically.
+ */
+export const clients: { name: string; logo?: string }[] = [
+  { name: "Kampala Serena" },
+  { name: "UN OCHA" },
+  { name: "Toyota Uganda" },
+  { name: "Hoima Refinery Park" },
+  { name: "Stanbic Estates" },
+  { name: "Entebbe Cargo" },
+  { name: "Mercy Corps" },
+  { name: "Lake Albert Logistics" },
+];
+

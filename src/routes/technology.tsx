@@ -47,7 +47,7 @@ function TechnologyPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.8fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
             <Reveal>
               <Eyebrow>The control room</Eyebrow>
               <Display level={2} className="mt-8 max-w-[22ch]">
@@ -85,7 +85,7 @@ function TechnologyPage() {
               What we install and monitor.
             </Display>
           </Reveal>
-          <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
             {technologyCapabilities.map((c, i) => (
               <Reveal
                 key={c.title}
@@ -112,7 +112,7 @@ function TechnologyPage() {
               Technology in detail.
             </Display>
           </Reveal>
-          <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2">
+          <div className="mt-10 grid gap-x-10 gap-y-14 md:grid-cols-2">
             {services
               .filter((s) => techServices.includes(s.slug))
               .map((s, i) => (

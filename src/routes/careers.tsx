@@ -45,13 +45,13 @@ function CareersPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
             <Reveal>
               <Eyebrow>Requirements</Eyebrow>
               <Display level={2} className="mt-8">
                 What we look for.
               </Display>
-              <dl className="mt-12 divide-y divide-border border-t border-border">
+              <dl className="mt-8 divide-y divide-border border-t border-border">
                 {officerStandards.map((o) => (
                   <div key={o.label} className="grid gap-2 py-5 sm:grid-cols-[10rem_1fr]">
                     <dt className="label text-muted-foreground">{o.label}</dt>
@@ -59,7 +59,7 @@ function CareersPage() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-12">
+              <div className="mt-8">
                 <Eyebrow>How to apply</Eyebrow>
                 <p className="mt-6 max-w-xl text-lg text-foreground/80">
                   Send your CV, a copy of your Certificate of Good Conduct and your academic
@@ -95,7 +95,7 @@ function CareersPage() {
               Fifteen modules, then the premises itself.
             </Display>
           </Reveal>
-          <ul className="mt-14 grid gap-x-10 border-t border-ink-border sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-x-10 border-t border-ink-border sm:grid-cols-2 lg:grid-cols-3">
             {basicCourseModules.map((m, i) => (
               <li
                 key={m}

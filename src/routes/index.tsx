@@ -24,6 +24,7 @@ import {
 } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
+import { ClientMarquee } from "@/components/site/ClientMarquee";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
 const description =
@@ -45,6 +46,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <ClientMarquee />
       <Statement />
       <ServicesIndex />
       <Method />
@@ -59,7 +61,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
       <img
         src={img.heroGate}
         alt="ANKA security officer on post at a lit corporate entrance at dusk"
@@ -72,7 +74,7 @@ function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/45"
       />
-      <Container className="relative pb-14 pt-40">
+      <Container className="relative pb-10 pt-28">
         <Eyebrow tone="gold">Kampala &middot; Hoima &middot; Since {company.founded}</Eyebrow>
         <h1 className="mt-8 font-display text-[clamp(2.9rem,9.5vw,8.5rem)] leading-[0.94] tracking-[-0.035em]">
           Securing
@@ -111,7 +113,7 @@ function Statement() {
   return (
     <Section>
       <Container>
-        <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr] lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
           <Reveal>
             <Eyebrow>Who we are</Eyebrow>
             <Display level={2} className="mt-8 max-w-[24ch]">
@@ -169,7 +171,7 @@ function ServicesIndex() {
           </p>
         </Reveal>
 
-        <ul className="mt-16 border-t border-border">
+        <ul className="mt-10 border-t border-border">
           {services.map((s, i) => (
             <Reveal as="li" key={s.slug} delay={Math.min(i * 45, 320)}>
               <Link
@@ -209,7 +211,7 @@ function Method() {
             Understand, train, deploy, supervise.
           </Display>
         </Reveal>
-        <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
           {operatingModel.map((step, i) => (
             <Reveal
               key={step.step}
@@ -231,7 +233,7 @@ function People() {
   return (
     <Section>
       <Container>
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <Figure
               src={img.trainingDrill}
@@ -257,7 +259,7 @@ function People() {
               on family, residence, employment history and referees. Only then do they enter the
               ANKA training system.
             </p>
-            <div className="mt-12 space-y-8">
+            <div className="mt-8 space-y-8">
               {guardingInclusions.map((g) => (
                 <div key={g.title} className="border-t border-border pt-5">
                   <h3 className="font-display text-lg">{g.title}</h3>
@@ -265,7 +267,7 @@ function People() {
                 </div>
               ))}
             </div>
-            <div className="mt-12">
+            <div className="mt-8">
               <ActionLink to="/training" variant="outline">
                 Inside the training
               </ActionLink>
@@ -281,7 +283,7 @@ function Supervision() {
   return (
     <Section tone="deep">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Reveal>
             <Eyebrow>Supervision</Eyebrow>
             <Display level={2} className="mt-8">
@@ -296,7 +298,7 @@ function Supervision() {
               src={img.supervision}
               alt="ANKA supervisor reviewing an occurrence book with an officer at a guard post at night"
               ratio="16/10"
-              className="mt-12"
+              className="mt-8"
             />
           </Reveal>
           <Reveal delay={120} className="space-y-10">
@@ -330,7 +332,7 @@ function Technology() {
         className="absolute inset-0 h-full w-full object-cover opacity-30"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-ink/75" />
-      <Container className="relative py-24 md:py-32">
+      <Container className="relative py-16 md:py-20">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="gold">Technology</Eyebrow>
           <Display level={2} className="mt-8">
@@ -341,7 +343,7 @@ function Technology() {
             room, where operators verify and escalate to response teams around the clock.
           </p>
         </Reveal>
-        <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
           {technologyCapabilities.map((c, i) => (
             <Reveal
               key={c.title}

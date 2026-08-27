@@ -65,7 +65,7 @@ function IndustriesPage() {
 
       <Section tone="deep">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <Figure
                 src={img.event}

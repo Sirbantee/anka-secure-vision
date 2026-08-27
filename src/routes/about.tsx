@@ -51,7 +51,7 @@ function AboutPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.8fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:gap-16">
             <Reveal>
               <Eyebrow>Our position</Eyebrow>
               <Display level={2} className="mt-8 max-w-[24ch]">
@@ -106,7 +106,7 @@ function AboutPage() {
               Seven steps, repeated for every site.
             </Display>
           </Reveal>
-          <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
             {operatingModel.map((step, i) => (
               <Reveal
                 key={step.step}
@@ -124,13 +124,13 @@ function AboutPage() {
 
       <Section tone="deep">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <Eyebrow>Officer standards</Eyebrow>
               <Display level={2} className="mt-8">
                 Who gets to wear the uniform.
               </Display>
-              <dl className="mt-12 divide-y divide-border border-t border-border">
+              <dl className="mt-8 divide-y divide-border border-t border-border">
                 {officerStandards.map((o) => (
                   <div key={o.label} className="grid gap-2 py-5 sm:grid-cols-[10rem_1fr]">
                     <dt className="label text-muted-foreground">{o.label}</dt>
@@ -144,7 +144,7 @@ function AboutPage() {
               <Display level={2} className="mt-8">
                 What happens after deployment.
               </Display>
-              <div className="mt-12 space-y-10">
+              <div className="mt-8 space-y-10">
                 {supervisionModel.map((s) => (
                   <div key={s.stage} className="border-t border-border pt-6">
                     <h3 className="font-display text-2xl">{s.stage}</h3>
