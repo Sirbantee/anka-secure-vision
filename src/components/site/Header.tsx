@@ -109,7 +109,7 @@ export function Header() {
             })}
             <a
               href={telHref(company.phone)}
-              className="ml-3 flex items-center gap-2 bg-primary px-4 py-2.5 font-display text-[0.7rem] font-bold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-green-deep"
+              className="ml-3 flex shrink-0 items-center gap-2 whitespace-nowrap bg-primary px-4 py-2.5 font-display text-[0.7rem] font-bold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-green-deep"
             >
               <Phone aria-hidden="true" className="size-[15px]" strokeWidth={1.75} />
               {company.phone}
