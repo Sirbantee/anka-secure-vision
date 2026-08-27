@@ -45,7 +45,7 @@ function ContactPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.7fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:gap-16">
             <Reveal>
               <Eyebrow>Enquiry</Eyebrow>
               <Display level={2} className="mt-8">
@@ -160,7 +160,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="mt-12 space-y-6">
+    <form onSubmit={onSubmit} noValidate className="mt-8 space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Name" error={errors.name}>
           <input name="name" className={fieldClass} placeholder="Your full name" autoComplete="name" />

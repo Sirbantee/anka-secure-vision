@@ -50,7 +50,7 @@ function TrainingPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <Reveal>
               <Eyebrow>Weeks one to three</Eyebrow>
               <Display level={2} className="mt-8">
@@ -65,7 +65,7 @@ function TrainingPage() {
                 src={img.classroom}
                 alt="Trainee security officers taking notes in an ANKA classroom session"
                 ratio="4/3"
-                className="mt-12"
+                className="mt-8"
               />
             </Reveal>
             <Reveal delay={120}>
@@ -89,7 +89,7 @@ function TrainingPage() {
 
       <Section tone="ink">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <Eyebrow tone="gold">Week four</Eyebrow>
               <Display level={2} className="mt-8 max-w-[20ch]">
@@ -100,7 +100,7 @@ function TrainingPage() {
                 the protocols and the standards of the specific site they are joining — including
                 the CCTV, alarm and access systems they will use daily.
               </p>
-              <ul className="mt-12 space-y-4">
+              <ul className="mt-8 space-y-4">
                 {customisedWeekFocus.map((f) => (
                   <li key={f} className="flex items-center gap-5 border-t border-ink-border pt-4">
                     <span aria-hidden="true" className="h-px w-6 bg-primary" />
@@ -134,7 +134,7 @@ function TrainingPage() {
               vetted before entering the programme.
             </p>
           </Reveal>
-          <dl className="mt-14 grid gap-x-10 gap-y-6 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-10 grid gap-x-10 gap-y-6 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-3">
             {officerStandards.map((o) => (
               <div key={o.label}>
                 <dt className="label text-muted-foreground">{o.label}</dt>

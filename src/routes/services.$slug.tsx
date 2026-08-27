@@ -96,7 +96,7 @@ function ServiceDetail() {
 
       <Section>
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[1fr_0.75fr] lg:gap-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-16">
             <Reveal>
               <Eyebrow>What&rsquo;s included</Eyebrow>
               <ul className="mt-10 divide-y divide-border border-t border-border">

@@ -52,7 +52,7 @@ function ServicesPage() {
                 {group}
               </Display>
             </Reveal>
-            <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
               {services
                 .filter((s) => s.group === group)
                 .map((s, i) => (

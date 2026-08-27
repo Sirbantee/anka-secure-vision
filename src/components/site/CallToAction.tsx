@@ -21,7 +21,7 @@ export function CallToAction({
         className="absolute inset-0 h-full w-full object-cover opacity-25"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-ink/70" />
-      <Container className="relative py-24 md:py-32">
+      <Container className="relative py-16 md:py-20">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="gold">{eyebrow}</Eyebrow>
           <Display level={2} className="mt-6">
