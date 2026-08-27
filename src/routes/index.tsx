@@ -24,6 +24,7 @@ import {
 } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
+import { ClientMarquee } from "@/components/site/ClientMarquee";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
 const description =
@@ -45,6 +46,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <ClientMarquee />
       <Statement />
       <ServicesIndex />
       <Method />
@@ -59,7 +61,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
       <img
         src={img.heroGate}
         alt="ANKA security officer on post at a lit corporate entrance at dusk"
