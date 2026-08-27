@@ -40,7 +40,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceNotFound() {
   return (
-    <Section className="pt-40">
+    <Section className="pt-32">
       <Container>
         <Eyebrow>Not found</Eyebrow>
         <Display level={2} className="mt-8">
@@ -85,7 +85,7 @@ function ServiceDetail() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40"
         />
-        <Container className="relative pb-16 pt-40 md:pb-24 md:pt-52">
+        <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
           <Eyebrow tone="gold">{`${service.index} — ${service.group}`}</Eyebrow>
           <Display level={1} className="mt-6 max-w-4xl">
             {service.name}
