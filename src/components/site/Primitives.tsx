@@ -34,7 +34,7 @@ export function Section({
     green: "bg-green-deep text-ink-foreground",
   } as const;
   return (
-    <section id={id} className={cn("py-20 md:py-28 lg:py-36", tones[tone], className)}>
+    <section id={id} className={cn("py-14 md:py-18 lg:py-22", tones[tone], className)}>
       {children}
     </section>
   );
@@ -207,12 +207,12 @@ export function PageHeader({
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40"
       />
-      <Container className="relative pb-16 pt-40 md:pb-24 md:pt-52">
+      <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>
-        <Display level={1} className="mt-6 max-w-4xl">
+        <Display level={1} className="mt-5 max-w-4xl">
           {title}
         </Display>
-        <Lead className="mt-7 text-ink-muted">{lead}</Lead>
+        <Lead className="mt-5 text-ink-muted">{lead}</Lead>
       </Container>
     </header>
   );
