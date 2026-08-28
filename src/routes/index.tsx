@@ -140,15 +140,26 @@ function Hero() {
 /** Editorial photo mosaic: the operation shown across guarding, K9, tech and events. */
 function Gallery() {
   const shots = [
-    { src: img.residential, alt: "ANKA officer at a residential gate at dusk", span: "lg:col-span-2 lg:row-span-2", ratio: "4/5" },
-    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", span: "", ratio: "4/3" },
-    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", span: "", ratio: "4/3" },
-    { src: img.vip, alt: "Close protection officers escorting a client to a vehicle", span: "", ratio: "4/3" },
-    { src: img.access, alt: "Officer controlling access at a manned reception barrier", span: "", ratio: "4/3" },
-    { src: img.event, alt: "ANKA officers managing a guest queue at an outdoor event", span: "lg:col-span-2", ratio: "16/9" },
-    { src: img.alarm, alt: "Alarm response vehicle arriving at a site at night", span: "", ratio: "4/3" },
-    { src: img.classroom, alt: "Recruits in an ANKA training classroom", span: "", ratio: "4/3" },
+    {
+      src: img.residential,
+      alt: "ANKA officer at a residential gate at dusk",
+      span: "col-span-2 row-span-2",
+      caption: "Residential posts",
+    },
+    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", span: "", caption: "Canine patrol" },
+    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", span: "", caption: "CCTV installs" },
+    { src: img.vip, alt: "Close protection officers escorting a client to a vehicle", span: "", caption: "Close protection" },
+    { src: img.access, alt: "Officer controlling access at a manned reception barrier", span: "", caption: "Access control" },
+    {
+      src: img.event,
+      alt: "ANKA officers managing a guest queue at an outdoor event",
+      span: "col-span-2",
+      caption: "Event security",
+    },
+    { src: img.alarm, alt: "Alarm response vehicle arriving at a site at night", span: "", caption: "Alarm response" },
+    { src: img.classroom, alt: "Recruits in an ANKA training classroom", span: "", caption: "Training school" },
   ];
+
 
   return (
     <Section tone="ink">
