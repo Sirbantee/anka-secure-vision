@@ -65,16 +65,12 @@ export function Header() {
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-[86rem] items-center justify-between gap-6 px-5 py-2.5 md:px-8 lg:px-12">
-          <Link to="/" className="flex items-center gap-2.5" aria-label={`${company.name} home`}>
-            <img src={img.logo} alt="" className="h-9 w-auto md:h-10" />
-            <span className="hidden sm:block">
-              <span className="block font-display text-sm font-extrabold leading-none tracking-[0.16em]">
-                ANKA
-              </span>
-              <span className="label mt-1 block text-[0.45rem] text-muted-foreground">
-                Security Services
-              </span>
-            </span>
+          <Link
+            to="/"
+            className="flex shrink-0 items-center"
+            aria-label={`${company.name} home`}
+          >
+            <img src={img.logo} alt="ANKA Security Services Limited" className="h-9 w-auto md:h-11" />
           </Link>
 
           <nav className="hidden items-center lg:flex" aria-label="Primary">
