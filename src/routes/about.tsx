@@ -59,7 +59,7 @@ function AboutPage() {
               </Display>
               <div className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-foreground/80">
                 <p>
-                  Security fails quietly — a patrol not walked, an occurrence book not filled, a
+                  Security fails quietly: a patrol not walked, an occurrence book not filled, a
                   camera pointed at a wall. ANKA is organised to catch those things before a client
                   ever has to.
                 </p>

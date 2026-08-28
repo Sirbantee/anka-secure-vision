@@ -38,7 +38,7 @@ function ContactPage() {
             Start with an <span className="text-primary">assessment.</span>
           </>
         }
-        lead="Tell us where the premises is and what it holds. We will assess the site and come back with a deployment proposal — officer numbers, shifts and the technology to support them."
+        lead="Tell us where the premises is and what it holds. We will assess the site and come back with a deployment proposal covering officer numbers, shifts and the technology to support them."
         image={img.residential}
         imageAlt="ANKA officer at the gate of a walled residential compound"
       />
@@ -143,16 +143,16 @@ function ContactForm() {
     const body = [
       `Name: ${name}`,
       `Email: ${email}`,
-      `Phone: ${phone || "—"}`,
-      `Organisation: ${organisation || "—"}`,
-      `Site location: ${location || "—"}`,
-      `Service of interest: ${service || "—"}`,
+      `Phone: ${phone || "Not provided"}`,
+      `Organisation: ${organisation || "Not provided"}`,
+      `Site location: ${location || "Not provided"}`,
+      `Service of interest: ${service || "Not provided"}`,
       "",
       message,
     ].join("\n");
 
     const href = `mailto:${company.email}?subject=${encodeURIComponent(
-      `Security enquiry — ${organisation || name}`,
+      `Security enquiry: ${organisation || name}`,
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = href;

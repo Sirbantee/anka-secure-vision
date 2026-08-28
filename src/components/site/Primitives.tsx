@@ -57,7 +57,7 @@ export function Eyebrow({
   } as const;
   return (
     <p className={cn("label flex items-center gap-3", tones[tone], className)}>
-      <span aria-hidden="true" className="h-px w-8 bg-current opacity-50" />
+      <span aria-hidden="true" className="h-[2px] w-8 bg-current opacity-70" />
       {children}
     </p>
   );
@@ -201,18 +201,19 @@ export function PageHeader({
         loading="eager"
         decoding="sync"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        className="absolute inset-0 h-full w-full object-cover opacity-75"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40"
+        className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/35"
       />
+      <div aria-hidden="true" className="brand-band absolute inset-x-0 top-0 h-[3px]" />
       <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>
         <Display level={1} className="mt-5 max-w-4xl">
           {title}
         </Display>
-        <Lead className="mt-5 text-ink-muted">{lead}</Lead>
+        <Lead className="mt-5 text-ink-foreground/85">{lead}</Lead>
       </Container>
     </header>
   );

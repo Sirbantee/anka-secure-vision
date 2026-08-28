@@ -57,7 +57,7 @@ function TrainingPage() {
                 The Basic Guarding Course.
               </Display>
               <p className="mt-8 text-lg text-foreground/80">
-                Fifteen modules covering the whole of an officer&rsquo;s duty — from legal grounds
+                Fifteen modules covering the whole of an officer&rsquo;s duty, from legal grounds
                 and reporting discipline to customer care and, where required, gun handling and
                 safety.
               </p>
@@ -97,7 +97,7 @@ function TrainingPage() {
               </Display>
               <p className="mt-8 text-lg text-ink-muted">
                 The final week is built with the client. Officers learn the operation, the people,
-                the protocols and the standards of the specific site they are joining — including
+                the protocols and the standards of the specific site they are joining, including
                 the CCTV, alarm and access systems they will use daily.
               </p>
               <ul className="mt-8 space-y-4">

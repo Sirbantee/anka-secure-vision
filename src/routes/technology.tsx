@@ -56,8 +56,8 @@ function TechnologyPage() {
               <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/80">
                 <p>
                   Operators watch live feeds, receive alarm activations and monitor fleet movement
-                  from one room, continuously. An activation is verified — visually where cameras
-                  exist — then escalated to supervisors and response.
+                  from one room, continuously. An activation is verified, visually where cameras
+                  exist, then escalated to supervisors and response.
                 </p>
                 <p>
                   Every activation, response and outcome is logged, so clients get a record rather
