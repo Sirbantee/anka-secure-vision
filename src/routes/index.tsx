@@ -246,7 +246,7 @@ function ServicesIndex() {
           <div>
             <Eyebrow>What we do</Eyebrow>
             <Display level={2} className="mt-8 max-w-[20ch]">
-              Eleven service lines, one standard.
+              <>Eleven service lines, <span className="brand-gradient-text">one standard.</span></>
             </Display>
           </div>
           <p className="max-w-sm text-muted-foreground">
@@ -261,9 +261,9 @@ function ServicesIndex() {
               <Link
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="group grid grid-cols-[auto_1fr] items-start gap-x-6 gap-y-3 border-b border-border py-7 transition-colors hover:bg-background md:grid-cols-[4rem_20rem_1fr_auto] md:items-center md:gap-8"
+                className="group grid grid-cols-[auto_1fr] items-start gap-x-6 gap-y-3 border-b border-border py-7 transition-colors hover:bg-primary/8 md:grid-cols-[4rem_20rem_1fr_auto] md:items-center md:gap-8"
               >
-                <span className="label pt-1 text-muted-foreground md:pt-0">{s.index}</span>
+                <span className="label pt-1 text-muted-foreground transition-colors group-hover:text-primary md:pt-0">{s.index}</span>
                 <h3 className="font-display text-2xl tracking-tight transition-colors group-hover:text-primary md:text-[1.7rem]">
                   {s.name}
                 </h3>
@@ -300,7 +300,7 @@ function Method() {
             <Reveal
               key={step.step}
               delay={Math.min(i * 70, 400)}
-              className="border-t border-ink-border py-8 pr-6"
+              className="card-lift border-t-2 border-ink-border px-4 py-8"
             >
               <p className="font-display text-4xl text-primary">{step.step}</p>
               <h3 className="mt-6 font-display text-xl">{step.title}</h3>
@@ -413,9 +413,9 @@ function Technology() {
         src={img.controlRoom}
         alt=""
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        className="absolute inset-0 h-full w-full object-cover opacity-60"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-ink/75" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/45" />
       <Container className="relative py-16 md:py-20">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="gold">Technology</Eyebrow>
@@ -432,7 +432,7 @@ function Technology() {
             <Reveal
               key={c.title}
               delay={Math.min(i * 70, 300)}
-              className="border-t border-ink-border py-7 pr-6"
+              className="card-lift border-t-2 border-ink-border px-4 py-7"
             >
               <h3 className="font-display text-lg">{c.title}</h3>
               <ul className="mt-4 space-y-2 text-sm text-ink-muted">
@@ -476,7 +476,7 @@ function Industries() {
             <Reveal
               key={ind.name}
               delay={Math.min(i * 45, 300)}
-              className="border border-border px-6 py-4 font-display text-lg tracking-tight transition-colors hover:border-primary hover:text-primary"
+              className="card-lift border border-border bg-card px-6 py-4 font-display text-lg tracking-tight hover:bg-primary/10 hover:text-primary"
             >
               {ind.name}
             </Reveal>
