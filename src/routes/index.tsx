@@ -61,7 +61,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative isolate flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
       <img
         src={img.heroGate}
         alt="ANKA security officer on post at a lit corporate entrance at dusk"
@@ -70,19 +70,40 @@ function Hero() {
         fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
+      {/* Lighter, banded overlay so the photograph stays clearly visible */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/45"
+        className="absolute inset-0 bg-gradient-to-t from-ink/92 via-ink/38 to-ink/25"
       />
-      <Container className="relative pb-10 pt-28">
-        <Eyebrow tone="gold">Kampala &middot; Hoima &middot; Since {company.founded}</Eyebrow>
-        <h1 className="mt-8 font-display text-[clamp(2.9rem,9.5vw,8.5rem)] leading-[0.94] tracking-[-0.035em]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/70 via-transparent to-transparent md:w-3/5"
+      />
+      <div aria-hidden="true" className="brand-band absolute inset-x-0 top-0 h-[3px]" />
+
+      <Container className="relative pb-8 pt-28">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <img src={img.logo} alt="" className="h-14 w-auto drop-shadow-lg md:h-16" />
+          <span className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-none tracking-[0.06em]">
+            ANKA
+          </span>
+          <span className="label rounded-full border border-gold/50 bg-gold/10 px-3 py-1.5 text-[0.55rem] text-gold">
+            Security Services Limited
+          </span>
+        </div>
+
+        <Eyebrow tone="gold" className="mt-8">
+          Kampala &middot; Hoima &middot; Since {company.founded}
+        </Eyebrow>
+
+        <h1 className="mt-6 font-display text-[clamp(2.9rem,9.5vw,8.5rem)] leading-[0.94] tracking-[-0.035em]">
           Securing
           <br />
-          what <span className="text-primary">matters.</span>
+          what <span className="brand-gradient-text">matters.</span>
         </h1>
+
         <div className="mt-10 grid gap-10 border-t border-ink-border pt-10 md:grid-cols-[1.1fr_auto] md:items-end">
-          <Lead className="text-ink-muted">
+          <Lead className="text-ink-foreground/85">
             Manned guarding, security technology and rapid response for premises across Uganda,
             delivered by officers who are trained, vetted and supervised without exception.
           </Lead>
@@ -94,7 +115,12 @@ function Hero() {
           </div>
         </div>
       </Container>
+
       <Container className="relative pb-10">
+        <p className="label mb-4 flex items-center gap-3 text-primary">
+          <span aria-hidden="true" className="live-dot" />
+          Control room live 24/7
+        </p>
         <StatRow
           tone="dark"
           items={[
@@ -106,6 +132,62 @@ function Hero() {
         />
       </Container>
     </section>
+  );
+}
+
+/** Editorial photo mosaic: the operation shown across guarding, K9, tech and events. */
+function Gallery() {
+  const shots = [
+    { src: img.residential, alt: "ANKA officer at a residential gate at dusk", span: "lg:col-span-2 lg:row-span-2", ratio: "4/5" },
+    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", span: "", ratio: "4/3" },
+    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", span: "", ratio: "4/3" },
+    { src: img.vip, alt: "Close protection officers escorting a client to a vehicle", span: "", ratio: "4/3" },
+    { src: img.access, alt: "Officer controlling access at a manned reception barrier", span: "", ratio: "4/3" },
+    { src: img.event, alt: "ANKA officers managing a guest queue at an outdoor event", span: "lg:col-span-2", ratio: "16/9" },
+    { src: img.alarm, alt: "Alarm response vehicle arriving at a site at night", span: "", ratio: "4/3" },
+    { src: img.classroom, alt: "Recruits in an ANKA training classroom", span: "", ratio: "4/3" },
+  ];
+
+  return (
+    <Section tone="ink">
+      <Container>
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow tone="gold">On the ground</Eyebrow>
+            <Display level={2} className="mt-6 max-w-[22ch]">
+              The operation, in <span className="brand-gradient-text">full view.</span>
+            </Display>
+          </div>
+          <p className="max-w-sm text-ink-muted">
+            Guard posts, canine patrols, camera installs, escorts, events and the classroom where it
+            all begins.
+          </p>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
+          {shots.map((s, i) => (
+            <Reveal
+              key={s.src}
+              delay={Math.min(i * 60, 360)}
+              className={cn("group relative overflow-hidden", s.span)}
+            >
+              <div className="h-full w-full overflow-hidden bg-ink" style={{ aspectRatio: s.ratio }}>
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                />
+              </div>
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/12"
+              />
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
   );
 }
 
