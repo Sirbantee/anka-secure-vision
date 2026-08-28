@@ -68,7 +68,7 @@ function CareersPage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <ActionAnchor
-                    href={`mailto:${company.email}?subject=${encodeURIComponent("Application — Security Officer")}`}
+                    href={`mailto:${company.email}?subject=${encodeURIComponent("Application: Security Officer")}`}
                   >
                     Email your application
                   </ActionAnchor>

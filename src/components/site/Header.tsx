@@ -65,7 +65,7 @@ export function Header() {
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-[86rem] items-center justify-between gap-6 px-5 py-2.5 md:px-8 lg:px-12">
-          <Link to="/" className="flex items-center gap-2.5" aria-label={`${company.name} — home`}>
+          <Link to="/" className="flex items-center gap-2.5" aria-label={`${company.name} home`}>
             <img src={img.logo} alt="" className="h-9 w-auto md:h-10" />
             <span className="hidden sm:block">
               <span className="block font-display text-sm font-extrabold leading-none tracking-[0.16em]">
@@ -142,7 +142,7 @@ export function Header() {
           </button>
         </div>
 
-        {/* Services mega-menu — jump straight to a service without scrolling */}
+        {/* Services mega-menu: jump straight to a service without scrolling */}
         <div
           onMouseEnter={openMenu}
           onMouseLeave={closeMenu}

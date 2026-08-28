@@ -83,7 +83,7 @@ function Hero() {
         </h1>
         <div className="mt-10 grid gap-10 border-t border-ink-border pt-10 md:grid-cols-[1.1fr_auto] md:items-end">
           <Lead className="text-ink-muted">
-            Manned guarding, security technology and rapid response for premises across Uganda —
+            Manned guarding, security technology and rapid response for premises across Uganda,
             delivered by officers who are trained, vetted and supervised without exception.
           </Lead>
           <div className="flex flex-wrap gap-4">
@@ -123,7 +123,7 @@ function Statement() {
               <p>
                 {company.name} is a Ugandan security company protecting homes, businesses,
                 industrial sites and events. We recruit selectively, train intensively and
-                supervise continuously — because the officer at the gate is the whole service.
+                supervise continuously, because the officer at the gate is the whole service.
               </p>
               <p>
                 Every deployment begins with an assessment of the premises. Officer numbers, shift
@@ -291,7 +291,7 @@ function Supervision() {
             </Display>
             <p className="mt-8 max-w-lg text-lg text-foreground/80">
               Supervisors and top management carry out random and surprise checks on deployed
-              posts. Where standards slip, the response is immediate — correction on site,
+              posts. Where standards slip, the response is immediate: correction on site,
               re-instruction, probation, or replacement.
             </p>
             <Figure

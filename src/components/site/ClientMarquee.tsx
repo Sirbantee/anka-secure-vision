@@ -2,7 +2,7 @@ import { clients } from "@/content/anka";
 import { Container, Eyebrow } from "./Primitives";
 
 /**
- * Client wordmark marquee — scrolls continuously right-to-left.
+ * Client wordmark marquee scrolls continuously right-to-left.
  * Replace a client's `logo` with an image URL once the artwork is supplied and
  * it renders in place of the wordmark automatically.
  */

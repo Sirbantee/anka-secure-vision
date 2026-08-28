@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * ANKA Security Services Limited — design system.
+ * ANKA Security Services Limited design system.
  * Palette: primary green #00BF63, secondary green #00AB65, gold #C99A2E,
  * dark #1F2937, cream #F6F2E8. Cream is the default page surface; dark
  * sections create rhythm; gold is used sparingly.
@@ -180,7 +180,7 @@
   border-top: 1px solid var(--color-border);
 }
 
-/* Scroll reveal — opt-in, restrained */
+/* Scroll reveal, opt-in, restrained */
 @utility reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -214,7 +214,7 @@
   }
 }
 
-/* Client marquee — continuous right-to-left scroll of a duplicated track */
+/* Client marquee: continuous right-to-left scroll of a duplicated track */
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);

@@ -5,7 +5,7 @@ import { img } from "@/content/images";
 import { Container, Eyebrow } from "./Primitives";
 
 /**
- * 404 — a dark "night patrol" screen. A torch beam follows the pointer and is
+ * 404: a dark "night patrol" screen. A torch beam follows the pointer and is
  * the only thing that reveals the missing page number underneath.
  */
 export function NotFoundScreen() {
@@ -71,7 +71,7 @@ export function NotFoundScreen() {
         </h1>
         <p className="mt-10 max-w-xl text-lg text-ink-muted">
           This post is empty. The page you were looking for has moved, been renamed, or never
-          existed — sweep the beam around and then take one of the routes below.
+          existed. Sweep the beam around and then take one of the routes below.
         </p>
 
         <nav className="mt-14 flex flex-wrap gap-x-10 gap-y-4" aria-label="Recovery">

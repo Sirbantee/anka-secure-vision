@@ -86,7 +86,7 @@ function ServiceDetail() {
           className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40"
         />
         <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
-          <Eyebrow tone="gold">{`${service.index} — ${service.group}`}</Eyebrow>
+          <Eyebrow tone="gold">{`${service.index} / ${service.group}`}</Eyebrow>
           <Display level={1} className="mt-6 max-w-4xl">
             {service.name}
           </Display>

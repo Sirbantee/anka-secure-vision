@@ -80,7 +80,7 @@ function IndustriesPage() {
               </Display>
               <p className="mt-8 text-lg text-foreground/80">
                 Where a sector carries its own compliance regime, ANKA builds the programme around
-                it — including printed, bespoke manuals for the officers assigned to your premises,
+                it, including printed, bespoke manuals for the officers assigned to your premises,
                 and continuous refreshers as your operation changes.
               </p>
             </Reveal>
