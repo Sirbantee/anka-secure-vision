@@ -3,6 +3,7 @@ import trainingDrill from "@/assets/anka-training-drill.webp.asset.json";
 import officersLineup from "@/assets/anka-officers-lineup.webp.asset.json";
 import controlRoom from "@/assets/anka-control-room.webp.asset.json";
 import heroGate from "@/assets/hero-gate-dusk.webp.asset.json";
+import heroMain from "@/assets/hero-main.webp.asset.json";
 import k9 from "@/assets/k9-patrol.webp.asset.json";
 import cctv from "@/assets/cctv-install.webp.asset.json";
 import classroom from "@/assets/training-classroom.webp.asset.json";
