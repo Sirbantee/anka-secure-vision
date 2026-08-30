@@ -22,6 +22,7 @@ export const img = {
   officersLineup: officersLineup.url,
   controlRoom: controlRoom.url,
   heroGate: heroGate.url,
+  heroMain: heroMain.url,
   k9: k9.url,
   cctv: cctv.url,
   classroom: classroom.url,
