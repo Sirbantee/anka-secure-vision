@@ -207,7 +207,6 @@ export function PageHeader({
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/35"
       />
-      <div aria-hidden="true" className="brand-band absolute inset-x-0 top-0 h-[3px]" />
       <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>
         <Display level={1} className="mt-5 max-w-4xl">

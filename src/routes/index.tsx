@@ -11,7 +11,7 @@ import {
   telHref,
 } from "@/content/anka";
 import { img } from "@/content/images";
-import { cn } from "@/lib/utils";
+
 import {
   ActionAnchor,
   ActionLink,
@@ -61,143 +61,158 @@ function HomePage() {
   );
 }
 
+const heroCredentials = [
+  { value: "Vetted", label: "Officers, no exceptions" },
+  { value: "24/7", label: "Manned control room" },
+  { value: "4 weeks", label: "In-house training" },
+];
+
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
       <img
-        src={img.heroGate}
-        alt="ANKA security officer on post at a lit corporate entrance at dusk"
+        src={img.heroMain}
+        alt="ANKA security officer standing post at a lit gatehouse in Kampala at dusk"
         loading="eager"
         decoding="sync"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {/* Lighter, banded overlay so the photograph stays clearly visible */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink/92 via-ink/38 to-ink/25"
+        width={1920}
+        height={1200}
+        className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/70 via-transparent to-transparent md:w-3/5"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20"
       />
-      <div aria-hidden="true" className="brand-band absolute inset-x-0 top-0 h-[3px]" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/85 via-ink/20 to-transparent md:w-4/5"
+      />
 
-      <Container className="relative pb-8 pt-28">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-          <img src={img.logo} alt="" className="h-14 w-auto drop-shadow-lg md:h-16" />
-          <span className="font-display text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold leading-none tracking-[0.06em]">
-            ANKA
-          </span>
-          <span className="label rounded-full border border-gold/50 bg-gold/10 px-3 py-1.5 text-[0.55rem] text-gold">
+      {/* Oversized ANKA wordmark sitting behind the headline */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-[26%] select-none text-center font-display text-[26vw] font-extrabold leading-none tracking-[-0.04em] text-ink-foreground/[0.07] md:bottom-[22%] md:text-[22vw]"
+      >
+        ANKA
+      </span>
+
+      <Container className="relative pb-10 pt-32 md:pb-14">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <img src={img.logo} alt="" className="h-11 w-auto md:h-12" />
+          <span className="label border-l border-ink-border pl-4 text-[0.6rem] text-gold">
             Security Services Limited
           </span>
         </div>
 
-        <Eyebrow tone="gold" className="mt-8">
-          Kampala &middot; Hoima &middot; Since {company.founded}
-        </Eyebrow>
+        <p className="label mt-8 text-ink-muted">
+          Kampala and Hoima &nbsp;/&nbsp; Established {company.founded}
+        </p>
 
-        <h1 className="mt-6 font-display text-[clamp(2.9rem,9.5vw,8.5rem)] leading-[0.94] tracking-[-0.035em]">
-          Securing
-          <br />
-          what <span className="brand-gradient-text">matters.</span>
+        <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.2rem,5.2vw,4.4rem)] leading-[1.02] tracking-[-0.03em]">
+          Securing what matters, <span className="text-primary">day and night.</span>
         </h1>
 
-        <div className="mt-10 grid gap-10 border-t border-ink-border pt-10 md:grid-cols-[1.1fr_auto] md:items-end">
-          <Lead className="text-ink-foreground/85">
+        <div className="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+          <Lead className="max-w-xl text-base text-ink-foreground/85 md:text-lg">
             Manned guarding, security technology and rapid response for premises across Uganda,
             delivered by officers who are trained, vetted and supervised without exception.
           </Lead>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             <ActionLink to="/services">Explore services</ActionLink>
             <ActionAnchor href={telHref(company.phone)} variant="light">
               Talk to us
             </ActionAnchor>
           </div>
         </div>
-      </Container>
 
-      <Container className="relative pb-10">
-        <p className="label mb-4 flex items-center gap-3 text-primary">
-          <span aria-hidden="true" className="live-dot" />
-          Control room live 24/7
-        </p>
-        <StatRow
-          tone="dark"
-          items={[
-            { value: "11", label: "Service lines" },
-            { value: "4 wks", label: "Officer training" },
-            { value: "24/7", label: "Control room" },
-            { value: "2", label: "Operating bases" },
-          ]}
-        />
+        <dl className="mt-10 grid max-w-3xl grid-cols-1 gap-px border border-ink-border bg-ink-border sm:grid-cols-3">
+          {heroCredentials.map((c) => (
+            <div key={c.value} className="bg-ink/70 px-5 py-4 backdrop-blur-sm">
+              <dt className="font-display text-xl tracking-tight">{c.value}</dt>
+              <dd className="label mt-1.5 text-[0.6rem] text-ink-muted">{c.label}</dd>
+            </div>
+          ))}
+        </dl>
       </Container>
     </section>
   );
 }
 
-/** Editorial photo mosaic: the operation shown across guarding, K9, tech and events. */
+/** Captioned photo grid: each frame is labelled so the operation reads clearly. */
 function Gallery() {
+  const feature = {
+    src: img.residential,
+    alt: "ANKA officer opening a residential gate at dusk",
+    caption: "Residential guarding",
+    note: "Gate control, patrols and visitor screening at private homes.",
+  };
   const shots = [
-    {
-      src: img.residential,
-      alt: "ANKA officer at a residential gate at dusk",
-      span: "col-span-2 row-span-2",
-      caption: "Residential posts",
-    },
-    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", span: "", caption: "Canine patrol" },
-    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", span: "", caption: "CCTV installs" },
-    { src: img.vip, alt: "Close protection officers escorting a client to a vehicle", span: "", caption: "Close protection" },
-    { src: img.access, alt: "Officer controlling access at a manned reception barrier", span: "", caption: "Access control" },
-    {
-      src: img.event,
-      alt: "ANKA officers managing a guest queue at an outdoor event",
-      span: "col-span-2",
-      caption: "Event security",
-    },
-    { src: img.alarm, alt: "Alarm response vehicle arriving at a site at night", span: "", caption: "Alarm response" },
-    { src: img.classroom, alt: "Recruits in an ANKA training classroom", span: "", caption: "Training school" },
+    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", caption: "Canine patrol" },
+    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", caption: "CCTV installation" },
+    { src: img.vip, alt: "Close protection officer escorting a client to a vehicle", caption: "Close protection" },
+    { src: img.access, alt: "Officer controlling access at a reception barrier", caption: "Access control" },
+    { src: img.event, alt: "ANKA officers managing a guest queue at an outdoor event", caption: "Event security" },
+    { src: img.classroom, alt: "Recruits in an ANKA training classroom", caption: "Training school" },
   ];
-
 
   return (
     <Section tone="ink">
       <Container>
-        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
             <Eyebrow tone="gold">On the ground</Eyebrow>
-            <Display level={2} className="mt-6 max-w-[22ch]">
-              The operation, in <span className="brand-gradient-text">full view.</span>
+            <Display level={2} className="mt-5 max-w-[20ch]">
+              The operation, in full view.
             </Display>
           </div>
-          <p className="max-w-sm text-ink-muted">
-            Guard posts, canine patrols, camera installs, escorts, events and the classroom where it
-            all begins.
+          <p className="max-w-sm text-sm text-ink-muted">
+            Every frame is a service we run today, from the guard post at the gate to the classroom
+            where officers are made.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
-          {shots.map((s, i) => (
-            <Reveal
-              key={s.src}
-              delay={Math.min(i * 60, 360)}
-              className={cn("group relative overflow-hidden", s.span)}
-            >
-              <div className="h-full w-full overflow-hidden bg-ink" style={{ aspectRatio: s.ratio }}>
-                <img
-                  src={s.src}
-                  alt={s.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
-                />
-              </div>
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/12"
+        <div className="mt-10 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
+          <Reveal className="group relative overflow-hidden">
+            <div className="h-full min-h-[22rem] w-full overflow-hidden bg-black/40 lg:min-h-full">
+              <img
+                src={feature.src}
+                alt={feature.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-            </Reveal>
-          ))}
+            </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink to-transparent"
+            />
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <p className="label text-gold">{feature.caption}</p>
+              <p className="mt-2 max-w-sm text-sm text-ink-foreground/85">{feature.note}</p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 gap-4">
+            {shots.map((s, i) => (
+              <Reveal key={s.src} delay={Math.min(i * 70, 350)} className="group">
+                <div className="relative overflow-hidden bg-black/40" style={{ aspectRatio: "4/3" }}>
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent"
+                  />
+                  <p className="label absolute inset-x-0 bottom-0 p-3 text-[0.55rem] text-ink-foreground">
+                    {s.caption}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Container>
     </Section>
@@ -257,7 +272,7 @@ function ServicesIndex() {
           <div>
             <Eyebrow>What we do</Eyebrow>
             <Display level={2} className="mt-8 max-w-[20ch]">
-              <>Eleven service lines, <span className="brand-gradient-text">one standard.</span></>
+              <>Eleven service lines, one standard.</>
             </Display>
           </div>
           <p className="max-w-sm text-muted-foreground">
