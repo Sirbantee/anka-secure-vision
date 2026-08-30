@@ -21,7 +21,6 @@ export function CallToAction({
         className="absolute inset-0 h-full w-full object-cover opacity-55"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/72 to-ink/45" />
-      <div aria-hidden="true" className="brand-band absolute inset-x-0 top-0 h-[3px]" />
       <Container className="relative py-16 md:py-20">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="gold">{eyebrow}</Eyebrow>

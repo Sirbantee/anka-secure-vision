@@ -272,7 +272,7 @@ function ServicesIndex() {
           <div>
             <Eyebrow>What we do</Eyebrow>
             <Display level={2} className="mt-8 max-w-[20ch]">
-              <>Eleven service lines, <span className="brand-gradient-text">one standard.</span></>
+              <>Eleven service lines, one standard.</>
             </Display>
           </div>
           <p className="max-w-sm text-muted-foreground">
