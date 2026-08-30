@@ -11,7 +11,7 @@ import {
   telHref,
 } from "@/content/anka";
 import { img } from "@/content/images";
-import { cn } from "@/lib/utils";
+
 import {
   ActionAnchor,
   ActionLink,
