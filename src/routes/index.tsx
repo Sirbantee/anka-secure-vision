@@ -26,6 +26,8 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
+import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
+import { WaveField } from "@/components/ui/wave-field";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
 const description =
