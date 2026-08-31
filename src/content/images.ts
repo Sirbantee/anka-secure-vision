@@ -15,6 +15,12 @@ import supervision from "@/assets/supervision-check.webp.asset.json";
 import residential from "@/assets/residential-gate.webp.asset.json";
 import alarm from "@/assets/alarm-response.webp.asset.json";
 import officerDetail from "@/assets/officer-detail.webp.asset.json";
+import svcGuarding from "@/assets/svc-guarding.webp.asset.json";
+import svcEvent from "@/assets/svc-event.webp.asset.json";
+import svcAccess from "@/assets/svc-access.webp.asset.json";
+import svcFleet from "@/assets/svc-fleet.webp.asset.json";
+import svcRescue from "@/assets/svc-rescue.webp.asset.json";
+import svcResponse from "@/assets/svc-response.webp.asset.json";
 
 export const img = {
   logo: logo.url,
@@ -34,4 +40,10 @@ export const img = {
   residential: residential.url,
   alarm: alarm.url,
   officerDetail: officerDetail.url,
+  svcGuarding: svcGuarding.url,
+  svcEvent: svcEvent.url,
+  svcAccess: svcAccess.url,
+  svcFleet: svcFleet.url,
+  svcRescue: svcRescue.url,
+  svcResponse: svcResponse.url,
 } as const;

@@ -46,7 +46,7 @@ export const services: Service[] = [
     short: "Guarding",
     summary:
       "Trained and vetted officers deployed to residential, commercial and industrial sites, armed or unarmed according to the risk profile of the premises.",
-    image: img.residential,
+    image: img.svcGuarding,
     imageAlt:
       "ANKA security officer opening the pedestrian gate of a walled residential compound in Kampala",
     group: "Manned Guarding",
@@ -157,7 +157,7 @@ export const services: Service[] = [
     short: "Events",
     summary:
       "End-to-end planning and deployment for weddings, sports fixtures, conferences and funerals.",
-    image: img.event,
+    image: img.svcEvent,
     imageAlt: "ANKA officers managing a guest queue at a barrier during an outdoor event at dusk",
     group: "Manned Guarding",
     provides: [
@@ -232,7 +232,7 @@ export const services: Service[] = [
     short: "Alarms",
     summary:
       "Intelligent alarm systems backed by rapid armed response, so a signal produces officers on site.",
-    image: img.alarm,
+    image: img.svcResponse,
     imageAlt: "ANKA rapid response vehicle at a compound gate at night in the rain",
     group: "Security Technology",
     provides: [
@@ -269,7 +269,7 @@ export const services: Service[] = [
     short: "Access Control",
     summary:
       "Perimeter electrification, biometrics, turnstiles and visitor management for controlled premises.",
-    image: img.access,
+    image: img.svcAccess,
     imageAlt: "Hand on a fingerprint reader beside a stainless steel turnstile at a corporate reception",
     group: "Security Technology",
     provides: [
@@ -306,7 +306,7 @@ export const services: Service[] = [
     short: "Fleet",
     summary:
       "Real-time fleet visibility, geo-fencing and recovery support for vehicles and cargo on the move.",
-    image: img.fleet,
+    image: img.svcFleet,
     imageAlt: "Supervisor walking between parked cargo trucks in a fenced logistics yard at dawn",
     group: "Security Technology",
     provides: [
@@ -418,7 +418,7 @@ export const services: Service[] = [
     short: "Road Rescue",
     summary:
       "Roadside assistance and emergency recovery for vehicles and their occupants.",
-    image: img.heroGate,
+    image: img.svcRescue,
     imageAlt: "Security officer standing at a lit vehicle entrance at dusk",
     group: "Response & Training",
     provides: [
@@ -534,7 +534,7 @@ export const supervisionModel = [
 ];
 
 export const officerStandards = [
-  { label: "Age", value: "24 – 45 years" },
+  { label: "Age", value: "24 to 45 years" },
   { label: "Education", value: "O-Level and above" },
   { label: "Conduct", value: "Valid Certificate of Good Conduct" },
   { label: "Language", value: "Fluent English & Kiswahili" },
