@@ -69,8 +69,12 @@ const heroCredentials = [
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground">
+    <ParallaxLayers
+      depths={[18, 12, 7, 2]}
+      className="flex min-h-[90svh] flex-col justify-end bg-ink text-ink-foreground"
+    >
       <img
+        data-parallax-layer="1"
         src={img.heroMain}
         alt="ANKA security officer standing post at a lit gatehouse in Kampala at dusk"
         loading="eager"
@@ -78,7 +82,7 @@ function Hero() {
         fetchPriority="high"
         width={1920}
         height={1200}
-        className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+        className="absolute -top-[16%] left-0 h-[130%] w-full object-cover object-[70%_center]"
       />
       <div
         aria-hidden="true"
@@ -91,51 +95,54 @@ function Hero() {
 
       {/* Oversized ANKA wordmark sitting behind the headline */}
       <span
+        data-parallax-layer="2"
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-[26%] select-none text-center font-display text-[26vw] font-extrabold leading-none tracking-[-0.04em] text-ink-foreground/[0.07] md:bottom-[22%] md:text-[22vw]"
       >
         ANKA
       </span>
 
-      <Container className="relative pb-10 pt-32 md:pb-14">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <img src={img.logo} alt="" className="h-11 w-auto md:h-12" />
-          <span className="label border-l border-ink-border pl-4 text-[0.6rem] text-gold">
-            Security Services Limited
-          </span>
-        </div>
-
-        <p className="label mt-8 text-ink-muted">
-          Kampala and Hoima &nbsp;/&nbsp; Established {company.founded}
-        </p>
-
-        <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.2rem,5.2vw,4.4rem)] leading-[1.02] tracking-[-0.03em]">
-          Securing what matters, <span className="text-primary">day and night.</span>
-        </h1>
-
-        <div className="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <Lead className="max-w-xl text-base text-ink-foreground/85 md:text-lg">
-            Manned guarding, security technology and rapid response for premises across Uganda,
-            delivered by officers who are trained, vetted and supervised without exception.
-          </Lead>
-          <div className="flex flex-wrap gap-3">
-            <ActionLink to="/services">Explore services</ActionLink>
-            <ActionAnchor href={telHref(company.phone)} variant="light">
-              Talk to us
-            </ActionAnchor>
+      <div data-parallax-layer="4" className="relative">
+        <Container className="pb-10 pt-32 md:pb-14">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <img src={img.logo} alt="" className="h-11 w-auto md:h-12" />
+            <span className="label border-l border-ink-border pl-4 text-[0.6rem] text-gold">
+              Security Services Limited
+            </span>
           </div>
-        </div>
 
-        <dl className="mt-10 grid max-w-3xl grid-cols-1 gap-px border border-ink-border bg-ink-border sm:grid-cols-3">
-          {heroCredentials.map((c) => (
-            <div key={c.value} className="bg-ink/70 px-5 py-4 backdrop-blur-sm">
-              <dt className="font-display text-xl tracking-tight">{c.value}</dt>
-              <dd className="label mt-1.5 text-[0.6rem] text-ink-muted">{c.label}</dd>
+          <p className="label mt-8 text-ink-muted">
+            Kampala and Hoima &nbsp;/&nbsp; Established {company.founded}
+          </p>
+
+          <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.2rem,5.2vw,4.4rem)] leading-[1.02] tracking-[-0.03em]">
+            Securing what matters, <span className="text-primary">day and night.</span>
+          </h1>
+
+          <div className="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <Lead className="max-w-xl text-base text-ink-foreground/85 md:text-lg">
+              Manned guarding, security technology and rapid response for premises across Uganda,
+              delivered by officers who are trained, vetted and supervised without exception.
+            </Lead>
+            <div className="flex flex-wrap gap-3">
+              <ActionLink to="/services">Explore services</ActionLink>
+              <ActionAnchor href={telHref(company.phone)} variant="light">
+                Talk to us
+              </ActionAnchor>
             </div>
-          ))}
-        </dl>
-      </Container>
-    </section>
+          </div>
+
+          <dl className="mt-10 grid max-w-3xl grid-cols-1 gap-px border border-ink-border bg-ink-border sm:grid-cols-3">
+            {heroCredentials.map((c) => (
+              <div key={c.value} className="bg-ink/70 px-5 py-4 backdrop-blur-sm">
+                <dt className="font-display text-xl tracking-tight">{c.value}</dt>
+                <dd className="label mt-1.5 text-[0.6rem] text-ink-muted">{c.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </div>
+    </ParallaxLayers>
   );
 }
 
