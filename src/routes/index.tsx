@@ -290,31 +290,36 @@ function ServicesIndex() {
           </p>
         </Reveal>
 
-        <ul className="mt-10 border-t border-border">
+        <ul className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal as="li" key={s.slug} delay={Math.min(i * 45, 320)}>
               <Link
                 to="/services/$slug"
                 params={{ slug: s.slug }}
-                className="group grid grid-cols-[auto_1fr] items-start gap-x-6 gap-y-3 border-b border-border py-7 transition-colors hover:bg-primary/8 md:grid-cols-[4rem_20rem_1fr_auto] md:items-center md:gap-8"
+                className="group block h-full"
               >
-                <span className="label pt-1 text-muted-foreground transition-colors group-hover:text-primary md:pt-0">{s.index}</span>
-                <h3 className="font-display text-2xl tracking-tight transition-colors group-hover:text-primary md:text-[1.7rem]">
+                <div className="relative overflow-hidden bg-ink" style={{ aspectRatio: "4/3" }}>
+                  <img
+                    src={s.image}
+                    alt={s.imageAlt}
+                    loading="lazy"
+                    width={1600}
+                    height={1200}
+                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                  />
+                  <span className="label absolute left-0 top-0 bg-ink/80 px-3 py-2 text-[0.55rem] text-gold backdrop-blur-sm">
+                    {s.index}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-xl tracking-tight transition-colors group-hover:text-primary md:text-2xl">
                   {s.name}
                 </h3>
-                <p className="col-span-2 max-w-2xl text-sm text-muted-foreground md:col-span-1">
-                  {s.summary}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="col-span-2 font-display text-xl transition-transform duration-300 group-hover:translate-x-2 md:col-span-1"
-                >
-                  &#8594;
-                </span>
+                <p className="mt-2 text-sm text-muted-foreground">{s.summary}</p>
               </Link>
             </Reveal>
           ))}
         </ul>
+
       </Container>
     </Section>
   );
