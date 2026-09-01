@@ -13,6 +13,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NotFoundScreen } from "@/components/site/NotFoundScreen";
+import { CookieBanner } from "@/components/site/CookieBanner";
+import { company } from "@/content/anka";
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
