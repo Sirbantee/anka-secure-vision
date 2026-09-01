@@ -57,7 +57,7 @@ export function NotFoundScreen() {
       />
 
       <Container className="relative flex flex-1 flex-col justify-center py-32">
-        <Eyebrow tone="gold">Error 404 &middot; Unsecured area</Eyebrow>
+        <Eyebrow tone="gold">Error 404 / Unsecured area</Eyebrow>
         <h1
           className="mt-10 select-none font-display text-[clamp(5rem,26vw,20rem)] leading-[0.8] tracking-[-0.05em]"
           style={{

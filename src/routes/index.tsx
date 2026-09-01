@@ -387,7 +387,7 @@ function People() {
               {guardingInclusions.map((g) => (
                 <div key={g.title} className="border-t border-border pt-5">
                   <h3 className="font-display text-lg">{g.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{g.items.join(" &middot; ")}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{g.items.join(" / ")}</p>
                 </div>
               ))}
             </div>

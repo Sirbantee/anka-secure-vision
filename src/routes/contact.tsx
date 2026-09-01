@@ -100,7 +100,7 @@ function ContactPage() {
               <div className="border-t border-border pt-6">
                 <Eyebrow>Operating in</Eyebrow>
                 <p className="mt-5 font-display text-xl tracking-tight">
-                  {company.locations.join(" · ")}
+                  {company.locations.join(" / ")}
                 </p>
               </div>
             </Reveal>
