@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { Breadcrumbs, type Crumb } from "@/components/site/Breadcrumbs";
 
 export function Container({
   children,
