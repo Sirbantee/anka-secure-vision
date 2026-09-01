@@ -26,7 +26,6 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
-import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
 import { WaveField } from "@/components/ui/wave-field";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
@@ -40,7 +39,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: HomePage,
 });
@@ -56,10 +57,36 @@ function HomePage() {
       <Gallery />
       <People />
       <Supervision />
+      <Monitoring />
       <Technology />
       <Industries />
       <CallToAction />
     </>
+  );
+}
+
+/** Interactive signal field: gives the control room claim something to feel. */
+function Monitoring() {
+  return (
+    <Section tone="deep">
+      <Container>
+        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow>Live monitoring</Eyebrow>
+            <Display level={2} className="mt-5 max-w-[20ch]">
+              Nothing on your site goes unwatched.
+            </Display>
+          </div>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            Cameras, alarms, access points and patrol check-ins all report into one control room,
+            staffed every hour of the day.
+          </p>
+        </Reveal>
+        <Reveal className="mt-8">
+          <WaveField />
+        </Reveal>
+      </Container>
+    </Section>
   );
 }
 
