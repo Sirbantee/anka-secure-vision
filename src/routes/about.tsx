@@ -15,6 +15,7 @@ import {
   Section,
   StatRow,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 
@@ -29,6 +30,14 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/about" },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "About", path: "/about" }]),
+      },
     ],
   }),
   component: AboutPage,
@@ -38,6 +47,7 @@ function AboutPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "About" }]}
         eyebrow="About ANKA"
         title={
           <>

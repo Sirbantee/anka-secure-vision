@@ -10,6 +10,7 @@ import {
   PageHeader,
   Section,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 
 const title = "Security Officer Jobs in Uganda | Careers at ANKA";
@@ -23,6 +24,14 @@ export const Route = createFileRoute("/careers")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/careers" },
+    ],
+    links: [{ rel: "canonical", href: "/careers" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "Careers", path: "/careers" }]),
+      },
     ],
   }),
   component: CareersPage,
@@ -32,6 +41,7 @@ function CareersPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "Careers" }]}
         eyebrow="Careers"
         title={
           <>

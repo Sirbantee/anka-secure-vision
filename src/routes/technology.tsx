@@ -9,6 +9,7 @@ import {
   PageHeader,
   Section,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 
@@ -23,6 +24,14 @@ export const Route = createFileRoute("/technology")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/technology" },
+    ],
+    links: [{ rel: "canonical", href: "/technology" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "Technology", path: "/technology" }]),
+      },
     ],
   }),
   component: TechnologyPage,
@@ -34,6 +43,7 @@ function TechnologyPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "Technology" }]}
         eyebrow="Technology"
         title={
           <>

@@ -9,6 +9,7 @@ import {
   PageHeader,
   Section,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,14 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/contact" },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "Contact", path: "/contact" }]),
+      },
     ],
   }),
   component: ContactPage,
@@ -32,6 +41,7 @@ function ContactPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "Contact" }]}
         eyebrow="Contact"
         title={
           <>

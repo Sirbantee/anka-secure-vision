@@ -14,6 +14,7 @@ import {
   PageHeader,
   Section,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 
@@ -28,6 +29,14 @@ export const Route = createFileRoute("/training")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/training" },
+    ],
+    links: [{ rel: "canonical", href: "/training" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "Training", path: "/training" }]),
+      },
     ],
   }),
   component: TrainingPage,
@@ -37,6 +46,7 @@ function TrainingPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "Training" }]}
         eyebrow="Training"
         title={
           <>
