@@ -21,12 +21,10 @@ import {
   Figure,
   Lead,
   Section,
-  StatRow,
 } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
-import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
 import { WaveField } from "@/components/ui/wave-field";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
@@ -40,7 +38,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: HomePage,
 });
@@ -56,6 +56,7 @@ function HomePage() {
       <Gallery />
       <People />
       <Supervision />
+      <Monitoring />
       <Technology />
       <Industries />
       <CallToAction />
@@ -63,20 +64,35 @@ function HomePage() {
   );
 }
 
-const heroCredentials = [
-  { value: "Vetted", label: "Officers, no exceptions" },
-  { value: "24/7", label: "Manned control room" },
-  { value: "4 weeks", label: "In-house training" },
-];
+/** Interactive signal field: gives the control room claim something to feel. */
+function Monitoring() {
+  return (
+    <Section tone="deep">
+      <Container>
+        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow>Live monitoring</Eyebrow>
+            <Display level={2} className="mt-5 max-w-[20ch]">
+              Nothing on your site goes unwatched.
+            </Display>
+          </div>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            Cameras, alarms, access points and patrol check-ins all report into one control room,
+            staffed every hour of the day.
+          </p>
+        </Reveal>
+        <Reveal className="mt-8">
+          <WaveField />
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
 
 function Hero() {
   return (
-    <ParallaxLayers
-      depths={[18, 12, 7, 2]}
-      className="flex min-h-[90svh] flex-col justify-end bg-ink text-ink-foreground"
-    >
+    <section className="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground md:min-h-[86svh]">
       <img
-        data-parallax-layer="1"
         src={img.heroMain}
         alt="ANKA security officer standing post at a lit gatehouse in Kampala at dusk"
         loading="eager"
@@ -84,67 +100,50 @@ function Hero() {
         fetchPriority="high"
         width={1920}
         height={1200}
-        className="absolute -top-[16%] left-0 h-[130%] w-full object-cover object-[70%_center]"
+        className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/20"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/25"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/85 via-ink/20 to-transparent md:w-4/5"
+        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/85 via-ink/25 to-transparent md:w-3/4"
       />
 
       {/* Oversized ANKA wordmark sitting behind the headline */}
       <span
-        data-parallax-layer="2"
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[26%] select-none text-center font-display text-[26vw] font-extrabold leading-none tracking-[-0.04em] text-ink-foreground/[0.07] md:bottom-[22%] md:text-[22vw]"
+        className="pointer-events-none absolute inset-x-0 bottom-[30%] select-none text-center font-display text-[30vw] font-extrabold leading-none tracking-[-0.04em] text-ink-foreground/[0.07] md:bottom-[26%] md:text-[22vw]"
       >
         ANKA
       </span>
 
-      <div data-parallax-layer="4" className="relative">
-        <Container className="pb-10 pt-32 md:pb-14">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <img src={img.logo} alt="" className="h-11 w-auto md:h-12" />
-            <span className="label border-l border-ink-border pl-4 text-[0.6rem] text-gold">
-              Security Services Limited
-            </span>
-          </div>
+      <Container className="relative pb-12 pt-28 md:pb-16 md:pt-32">
+        <p className="label text-gold">Security Services in Uganda</p>
 
-          <p className="label mt-8 text-ink-muted">
-            Kampala and Hoima &nbsp;/&nbsp; Established {company.founded}
-          </p>
+        <h1 className="mt-4 max-w-[16ch] font-display text-[clamp(2rem,8vw,4.2rem)] leading-[1.04] tracking-[-0.03em]">
+          Securing what matters, <span className="text-primary">day and night.</span>
+        </h1>
 
-          <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.2rem,5.2vw,4.4rem)] leading-[1.02] tracking-[-0.03em]">
-            Securing what matters, <span className="text-primary">day and night.</span>
-          </h1>
+        <p className="mt-5 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
+          Trained, vetted officers with security technology and 24/7 response.
+        </p>
 
-          <div className="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-            <Lead className="max-w-xl text-base text-ink-foreground/85 md:text-lg">
-              Manned guarding, security technology and rapid response for premises across Uganda,
-              delivered by officers who are trained, vetted and supervised without exception.
-            </Lead>
-            <div className="flex flex-wrap gap-3">
-              <ActionLink to="/services">Explore services</ActionLink>
-              <ActionAnchor href={telHref(company.phone)} variant="light">
-                Talk to us
-              </ActionAnchor>
-            </div>
-          </div>
-
-          <dl className="mt-10 grid max-w-3xl grid-cols-1 gap-px border border-ink-border bg-ink-border sm:grid-cols-3">
-            {heroCredentials.map((c) => (
-              <div key={c.value} className="bg-ink/70 px-5 py-4 backdrop-blur-sm">
-                <dt className="font-display text-xl tracking-tight">{c.value}</dt>
-                <dd className="label mt-1.5 text-[0.6rem] text-ink-muted">{c.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </div>
-    </ParallaxLayers>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <ActionLink to="/services" className="justify-center">
+            Explore services
+          </ActionLink>
+          <ActionAnchor
+            href={telHref(company.phone)}
+            variant="light"
+            className="justify-center"
+          >
+            Talk to us
+          </ActionAnchor>
+        </div>
+      </Container>
+    </section>
   );
 }
 
@@ -387,7 +386,7 @@ function People() {
               {guardingInclusions.map((g) => (
                 <div key={g.title} className="border-t border-border pt-5">
                   <h3 className="font-display text-lg">{g.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{g.items.join(" &middot; ")}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{g.items.join(" / ")}</p>
                 </div>
               ))}
             </div>

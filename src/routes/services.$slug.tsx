@@ -8,6 +8,7 @@ import {
   Lead,
   Section,
 } from "@/components/site/Primitives";
+import { Breadcrumbs, breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 
@@ -31,6 +32,33 @@ export const Route = createFileRoute("/services/$slug")({
         { name: "description", content: service.summary },
         { property: "og:title", content: title },
         { property: "og:description", content: service.summary },
+        { property: "og:url", content: `/services/${service.slug}` },
+      ],
+      links: [{ rel: "canonical", href: `/services/${service.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: breadcrumbSchema([
+            { name: "Services", path: "/services" },
+            { name: service.name, path: `/services/${service.slug}` },
+          ]),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.name,
+            description: service.summary,
+            serviceType: service.name,
+            provider: { "@type": "SecurityService", name: "ANKA Security Services Limited" },
+            areaServed: [
+              { "@type": "City", name: "Kampala" },
+              { "@type": "City", name: "Hoima" },
+              { "@type": "Country", name: "Uganda" },
+            ],
+          }),
+        },
       ],
     };
   },
@@ -85,7 +113,14 @@ function ServiceDetail() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40"
         />
-        <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
+        <Container className="relative pb-12 pt-24 md:pb-16 md:pt-32">
+          <Breadcrumbs
+            className="mb-6"
+            items={[
+              { label: "Services", to: "/services" },
+              { label: service.name },
+            ]}
+          />
           <Eyebrow tone="gold">{`${service.index} / ${service.group}`}</Eyebrow>
           <Display level={1} className="mt-6 max-w-4xl">
             {service.name}

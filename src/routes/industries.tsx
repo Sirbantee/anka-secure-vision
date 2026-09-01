@@ -9,6 +9,7 @@ import {
   PageHeader,
   Section,
 } from "@/components/site/Primitives";
+import { breadcrumbSchema } from "@/components/site/Breadcrumbs";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 
@@ -23,6 +24,14 @@ export const Route = createFileRoute("/industries")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:url", content: "/industries" },
+    ],
+    links: [{ rel: "canonical", href: "/industries" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: breadcrumbSchema([{ name: "Industries", path: "/industries" }]),
+      },
     ],
   }),
   component: IndustriesPage,
@@ -32,6 +41,7 @@ function IndustriesPage() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: "Industries" }]}
         eyebrow="Industries"
         title={
           <>

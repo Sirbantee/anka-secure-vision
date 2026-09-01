@@ -13,6 +13,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NotFoundScreen } from "@/components/site/NotFoundScreen";
+import { CookieBanner } from "@/components/site/CookieBanner";
+import { company } from "@/content/anka";
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
@@ -79,6 +81,60 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SecurityService",
+          "@id": "/#organization",
+          name: company.name,
+          alternateName: company.short,
+          description: siteDescription,
+          slogan: company.tagline,
+          foundingDate: company.founded,
+          url: "/",
+          logo: "/favicon.png",
+          image: "/favicon.png",
+          telephone: company.phone,
+          email: company.email,
+          priceRange: "$$",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: `${company.address.line1}, ${company.address.line2}`,
+            postOfficeBoxNumber: company.address.box,
+            addressLocality: "Kampala",
+            addressCountry: "UG",
+          },
+          areaServed: company.locations.map((city) => ({ "@type": "City", name: city })),
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ],
+            opens: "00:00",
+            closes: "23:59",
+          },
+          serviceType: [
+            "Manned guarding",
+            "Canine security",
+            "VIP close protection",
+            "Event security",
+            "CCTV installation and monitoring",
+            "Alarm systems and armed response",
+            "Access control",
+            "Vehicle tracking",
+            "Security officer training",
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -111,6 +167,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <CookieBanner />
     </QueryClientProvider>
   );
 }

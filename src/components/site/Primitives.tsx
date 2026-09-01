@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { Breadcrumbs, type Crumb } from "@/components/site/Breadcrumbs";
 
 export function Container({
   children,
@@ -186,12 +187,14 @@ export function PageHeader({
   lead,
   image,
   imageAlt,
+  crumbs,
 }: {
   eyebrow: string;
   title: ReactNode;
   lead: string;
   image: string;
   imageAlt: string;
+  crumbs?: Crumb[];
 }) {
   return (
     <header className="relative isolate overflow-hidden bg-ink text-ink-foreground">
@@ -207,12 +210,13 @@ export function PageHeader({
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/35"
       />
-      <Container className="relative pb-12 pt-28 md:pb-16 md:pt-36">
+      <Container className="relative pb-12 pt-24 md:pb-16 md:pt-32">
+        {crumbs?.length ? <Breadcrumbs items={crumbs} className="mb-6" /> : null}
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>
         <Display level={1} className="mt-5 max-w-4xl">
           {title}
         </Display>
-        <Lead className="mt-5 text-ink-foreground/85">{lead}</Lead>
+        <Lead className="mt-5 text-base text-ink-foreground/85 md:text-xl">{lead}</Lead>
       </Container>
     </header>
   );
