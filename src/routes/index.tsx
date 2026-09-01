@@ -21,7 +21,6 @@ import {
   Figure,
   Lead,
   Section,
-  StatRow,
 } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
