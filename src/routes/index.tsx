@@ -284,7 +284,7 @@ function Statement() {
           <Reveal delay={120} className="lg:pt-24">
             <Figure
               src={img.officersLineup}
-              alt="A line of ANKA security officers in grey-blue uniforms during an outdoor parade"
+              alt="A line of ANKA officers standing at attention at sunrise, seen from behind"
               ratio="4/5"
               caption="ANKA officers on parade"
             />
@@ -383,7 +383,7 @@ function People() {
           <Reveal>
             <Figure
               src={img.trainingDrill}
-              alt="ANKA officers formed up on a grass field during a training drill"
+              alt="ANKA officers formed up at attention at sunrise, seen from behind"
               ratio="5/4"
             />
             <div className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
@@ -442,7 +442,7 @@ function Supervision() {
             </p>
             <Figure
               src={img.supervision}
-              alt="ANKA supervisor reviewing an occurrence book with an officer at a guard post at night"
+              alt="Radio and uniform detail of an ANKA officer on night duty"
               ratio="16/10"
               className="mt-8"
             />
