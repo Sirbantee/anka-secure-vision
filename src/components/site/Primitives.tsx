@@ -57,10 +57,7 @@ export function Eyebrow({
     green: "text-primary",
   } as const;
   return (
-    <p className={cn("label flex items-center gap-3", tones[tone], className)}>
-      <span aria-hidden="true" className="h-[2px] w-8 bg-current opacity-70" />
-      {children}
-    </p>
+    <p className={cn("label", tones[tone], className)}>{children}</p>
   );
 }
 
