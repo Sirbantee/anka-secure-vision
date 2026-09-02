@@ -88,7 +88,7 @@ function CareersPage() {
             <Reveal delay={120} className="lg:pt-16">
               <Figure
                 src={img.classroom}
-                alt="Trainee ANKA officers in a classroom session with an instructor"
+                alt="Issued ANKA uniform, duty belt and boots laid out for a new recruit"
                 ratio="4/5"
                 caption="Every new officer completes the four-week programme"
               />

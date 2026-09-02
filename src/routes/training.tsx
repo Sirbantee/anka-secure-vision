@@ -73,7 +73,7 @@ function TrainingPage() {
               </p>
               <Figure
                 src={img.classroom}
-                alt="Trainee security officers taking notes in an ANKA classroom session"
+                alt="Issued ANKA uniform, duty belt and boots laid out before deployment"
                 ratio="4/3"
                 className="mt-8"
               />
