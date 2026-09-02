@@ -91,46 +91,33 @@ function Monitoring() {
 
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground md:min-h-[86svh]">
+    <section className="relative isolate flex min-h-[80svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground md:min-h-[88svh]">
       <img
         src={img.heroMain}
-        alt="ANKA security officer standing post at a lit gatehouse in Kampala at dusk"
+        alt="Security officer standing post at the lit entrance of a modern building at dusk"
         loading="eager"
         decoding="sync"
         fetchPriority="high"
         width={1920}
         height={1200}
-        className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
+        className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/25"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-ink/85 via-ink/25 to-transparent md:w-3/4"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25"
       />
 
-      {/* Oversized ANKA wordmark sitting behind the headline */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[30%] select-none text-center font-display text-[30vw] font-extrabold leading-none tracking-[-0.04em] text-ink-foreground/[0.07] md:bottom-[26%] md:text-[22vw]"
-      >
-        ANKA
-      </span>
-
-      <Container className="relative pb-12 pt-28 md:pb-16 md:pt-32">
-        <p className="label text-gold">Security Services in Uganda</p>
-
-        <h1 className="mt-4 max-w-[16ch] font-display text-[clamp(2rem,8vw,4.2rem)] leading-[1.04] tracking-[-0.03em]">
-          Securing what matters, <span className="text-primary">day and night.</span>
+      <Container className="relative pb-16 pt-32 md:pb-20 md:pt-36">
+        <h1 className="flex flex-col">
+          <span className="font-display text-[clamp(4.5rem,22vw,15rem)] font-extrabold leading-[0.82] tracking-[-0.05em]">
+            ANKA
+          </span>
+          <span className="mt-4 max-w-[30ch] text-[0.7rem] font-medium uppercase tracking-[0.32em] text-ink-foreground/75 md:text-xs">
+            Securing what matters, day and night.
+          </span>
         </h1>
 
-        <p className="mt-5 max-w-md text-base leading-relaxed text-ink-foreground/85 md:text-lg">
-          Trained, vetted officers with security technology and 24/7 response.
-        </p>
-
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <ActionLink to="/services" className="justify-center">
             Explore services
           </ActionLink>
@@ -147,21 +134,66 @@ function Hero() {
   );
 }
 
-/** Captioned photo grid: each frame is labelled so the operation reads clearly. */
+/** Editorial collage: mixed aspect frames so the operation reads as one composition. */
 function Gallery() {
-  const feature = {
-    src: img.residential,
-    alt: "ANKA officer opening a residential gate at dusk",
-    caption: "Residential guarding",
-    note: "Gate control, patrols and visitor screening at private homes.",
-  };
-  const shots = [
-    { src: img.k9, alt: "ANKA canine handler on patrol with a working dog", caption: "Canine patrol" },
-    { src: img.cctv, alt: "Technician installing a CCTV camera on a building facade", caption: "CCTV installation" },
-    { src: img.vip, alt: "Close protection officer escorting a client to a vehicle", caption: "Close protection" },
-    { src: img.access, alt: "Officer controlling access at a reception barrier", caption: "Access control" },
-    { src: img.event, alt: "ANKA officers managing a guest queue at an outdoor event", caption: "Event security" },
-    { src: img.classroom, alt: "Recruits in an ANKA training classroom", caption: "Training school" },
+  const frames = [
+    {
+      src: img.patrol,
+      alt: "Security officer walking a patrol route through a marble lobby",
+      caption: "Manned guarding",
+      note: "Posted officers, patrol routes and visitor control on every shift.",
+      className: "sm:col-span-4 sm:row-span-2",
+      ratio: "4/5",
+    },
+    {
+      src: img.cctv,
+      alt: "Dome CCTV camera mounted on a concrete facade at dusk",
+      caption: "CCTV and surveillance",
+      className: "sm:col-span-5",
+      ratio: "16/10",
+    },
+    {
+      src: img.access,
+      alt: "Access card presented at a glass turnstile reader",
+      caption: "Access control",
+      className: "sm:col-span-3",
+      ratio: "4/3",
+    },
+    {
+      src: img.k9,
+      alt: "Canine unit with handler on a lit driveway at night",
+      caption: "Canine patrol",
+      className: "sm:col-span-3",
+      ratio: "4/3",
+    },
+    {
+      src: img.alarm,
+      alt: "Marked security response vehicle at an industrial gate at night",
+      caption: "Armed response",
+      className: "sm:col-span-5",
+      ratio: "16/10",
+    },
+    {
+      src: img.officerDetail,
+      alt: "Radio and uniform detail of a security officer",
+      caption: "Standards",
+      className: "sm:col-span-3",
+      ratio: "3/4",
+    },
+    {
+      src: img.vip,
+      alt: "Close protection officer opening a vehicle door outside a hotel",
+      caption: "Close protection",
+      className: "sm:col-span-5",
+      ratio: "16/10",
+    },
+    {
+      src: img.fleet,
+      alt: "Secured logistics yard at dusk seen from the air",
+      caption: "Industrial sites",
+      className: "sm:col-span-4",
+      ratio: "4/3",
+    },
   ];
 
   return (
@@ -169,63 +201,54 @@ function Gallery() {
       <Container>
         <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <Eyebrow tone="gold">On the ground</Eyebrow>
-            <Display level={2} className="mt-5 max-w-[20ch]">
-              The operation, in full view.
+            <Eyebrow tone="gold">More about ANKA</Eyebrow>
+            <Display level={2} className="mt-4 max-w-[20ch]">
+              One operation, every layer.
             </Display>
           </div>
           <p className="max-w-sm text-sm text-ink-muted">
-            Every frame is a service we run today, from the guard post at the gate to the classroom
-            where officers are made.
+            Officers on post, technology on the perimeter and a response team on standby, run as a
+            single service across Uganda.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
-          <Reveal className="group relative overflow-hidden">
-            <div className="h-full min-h-[22rem] w-full overflow-hidden bg-black/40 lg:min-h-full">
-              <img
-                src={feature.src}
-                alt={feature.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-              />
-            </div>
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink to-transparent"
-            />
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="label text-gold">{feature.caption}</p>
-              <p className="mt-2 max-w-sm text-sm text-ink-foreground/85">{feature.note}</p>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-2 gap-4">
-            {shots.map((s, i) => (
-              <Reveal key={s.src} delay={Math.min(i * 70, 350)} className="group">
-                <div className="relative overflow-hidden bg-black/40" style={{ aspectRatio: "4/3" }}>
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-12 sm:gap-4">
+          {frames.map((f, i) => (
+            <Reveal
+              key={f.caption}
+              delay={Math.min(i * 60, 320)}
+              className={`group ${f.className}`}
+            >
+              <figure className="relative h-full overflow-hidden bg-black/40">
+                <div className="h-full w-full" style={{ aspectRatio: f.ratio }}>
                   <img
-                    src={s.src}
-                    alt={s.alt}
+                    src={f.src}
+                    alt={f.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
                   />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent"
-                  />
-                  <p className="label absolute inset-x-0 bottom-0 p-3 text-[0.55rem] text-ink-foreground">
-                    {s.caption}
-                  </p>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 p-4 md:p-5">
+                  <p className="label text-gold">{f.caption}</p>
+                  {f.note ? (
+                    <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-foreground/85">
+                      {f.note}
+                    </p>
+                  ) : null}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
       </Container>
     </Section>
   );
 }
+
 
 function Statement() {
   return (
