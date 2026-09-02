@@ -1,49 +1,49 @@
 import logo from "@/assets/anka-logo.png.asset.json";
-import trainingDrill from "@/assets/anka-training-drill.webp.asset.json";
-import officersLineup from "@/assets/anka-officers-lineup.webp.asset.json";
-import controlRoom from "@/assets/anka-control-room.webp.asset.json";
-import heroGate from "@/assets/hero-gate-dusk.webp.asset.json";
-import heroMain from "@/assets/hero-main.webp.asset.json";
-import k9 from "@/assets/k9-patrol.webp.asset.json";
-import cctv from "@/assets/cctv-install.webp.asset.json";
-import classroom from "@/assets/training-classroom.webp.asset.json";
-import vip from "@/assets/vip-escort.webp.asset.json";
-import event from "@/assets/event-security.webp.asset.json";
-import access from "@/assets/access-control.webp.asset.json";
-import fleet from "@/assets/fleet-yard.webp.asset.json";
-import supervision from "@/assets/supervision-check.webp.asset.json";
-import residential from "@/assets/residential-gate.webp.asset.json";
-import alarm from "@/assets/alarm-response.webp.asset.json";
-import officerDetail from "@/assets/officer-detail.webp.asset.json";
-import svcGuarding from "@/assets/svc-guarding.webp.asset.json";
-import svcEvent from "@/assets/svc-event.webp.asset.json";
-import svcAccess from "@/assets/svc-access.webp.asset.json";
-import svcFleet from "@/assets/svc-fleet.webp.asset.json";
-import svcRescue from "@/assets/svc-rescue.webp.asset.json";
-import svcResponse from "@/assets/svc-response.webp.asset.json";
 
+import pxHero from "@/assets/px-hero.webp.asset.json";
+import pxPatrol from "@/assets/px-patrol.webp.asset.json";
+import pxCctv from "@/assets/px-cctv.webp.asset.json";
+import pxControl from "@/assets/px-control.webp.asset.json";
+import pxK9 from "@/assets/px-k9.webp.asset.json";
+import pxVip from "@/assets/px-vip.webp.asset.json";
+import pxDetail from "@/assets/px-detail.webp.asset.json";
+import pxGate from "@/assets/px-gate.webp.asset.json";
+import pxLineup from "@/assets/px-lineup.webp.asset.json";
+import pxAccess from "@/assets/px-access.webp.asset.json";
+import pxResponse from "@/assets/px-response.webp.asset.json";
+import pxEvent from "@/assets/px-event.webp.asset.json";
+import pxYard from "@/assets/px-yard.webp.asset.json";
+import pxTraining from "@/assets/px-training.webp.asset.json";
+
+/**
+ * Premium photography set. Frames are art directed so no faces are visible:
+ * back views, silhouettes, hands and equipment detail only.
+ */
 export const img = {
   logo: logo.url,
-  trainingDrill: trainingDrill.url,
-  officersLineup: officersLineup.url,
-  controlRoom: controlRoom.url,
-  heroGate: heroGate.url,
-  heroMain: heroMain.url,
-  k9: k9.url,
-  cctv: cctv.url,
-  classroom: classroom.url,
-  vip: vip.url,
-  event: event.url,
-  access: access.url,
-  fleet: fleet.url,
-  supervision: supervision.url,
-  residential: residential.url,
-  alarm: alarm.url,
-  officerDetail: officerDetail.url,
-  svcGuarding: svcGuarding.url,
-  svcEvent: svcEvent.url,
-  svcAccess: svcAccess.url,
-  svcFleet: svcFleet.url,
-  svcRescue: svcRescue.url,
-  svcResponse: svcResponse.url,
+
+  heroMain: pxHero.url,
+  heroGate: pxGate.url,
+  patrol: pxPatrol.url,
+  trainingDrill: pxLineup.url,
+  officersLineup: pxLineup.url,
+  controlRoom: pxControl.url,
+  k9: pxK9.url,
+  cctv: pxCctv.url,
+  classroom: pxTraining.url,
+  vip: pxVip.url,
+  event: pxEvent.url,
+  access: pxAccess.url,
+  fleet: pxYard.url,
+  supervision: pxDetail.url,
+  residential: pxGate.url,
+  alarm: pxResponse.url,
+  officerDetail: pxDetail.url,
+
+  svcGuarding: pxPatrol.url,
+  svcEvent: pxEvent.url,
+  svcAccess: pxAccess.url,
+  svcFleet: pxYard.url,
+  svcRescue: pxResponse.url,
+  svcResponse: pxResponse.url,
 } as const;
