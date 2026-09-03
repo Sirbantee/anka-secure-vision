@@ -8,7 +8,7 @@ import pxK9 from "@/assets/px-k9.webp.asset.json";
 import pxVip from "@/assets/px-vip.webp.asset.json";
 import pxDetail from "@/assets/px-detail.webp.asset.json";
 import pxGate from "@/assets/px-gate.webp.asset.json";
-import pxLineup from "@/assets/px-lineup.webp.asset.json";
+import pxLineup from "@/assets/px-lineup2.webp.asset.json";
 import pxAccess from "@/assets/px-access.webp.asset.json";
 import pxResponse from "@/assets/px-response.webp.asset.json";
 import pxEvent from "@/assets/px-event.webp.asset.json";
