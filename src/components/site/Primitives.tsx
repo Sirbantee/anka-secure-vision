@@ -210,7 +210,7 @@ export function PageHeader({
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/35"
       />
-      <div aria-hidden="true" className="polka-light pointer-events-none absolute inset-0" />
+      
       <Container className="relative pb-12 pt-24 md:pb-16 md:pt-32">
         {crumbs?.length ? <Breadcrumbs items={crumbs} className="mb-6" /> : null}
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>

@@ -64,54 +64,77 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-background pt-20 md:pt-24">
-      <div
-        aria-hidden="true"
-        className="polka pointer-events-none absolute inset-x-0 top-0 h-64 opacity-40"
-      />
-      <Container className="relative pb-10 md:pb-14">
-        {/* Wordmark sits behind the photograph, in the logo green */}
-        <h1 className="relative z-0 text-center">
-          <span className="block font-display text-[clamp(5rem,25vw,20rem)] font-extrabold leading-[0.78] tracking-[-0.05em] text-primary/35">
+    <section className="bg-background pt-20 md:pt-24">
+      <Container className="py-6 md:py-10">
+        <div className="relative grid overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_90px_-60px_rgba(0,0,0,0.45)] lg:grid-cols-12">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-10 -top-14 z-0 select-none font-display text-[22vw] font-extrabold leading-none tracking-tighter text-foreground/[0.035]"
+          >
             ANKA
           </span>
-          <span className="sr-only">
-            ANKA Security Services, securing what matters, day and night.
-          </span>
-        </h1>
 
-        <div className="relative z-10 -mt-[8vw] overflow-hidden rounded-3xl bg-ink text-ink-foreground shadow-[0_40px_90px_-50px_rgba(0,0,0,0.6)] md:rounded-4xl">
-          <div className="relative h-[52svh] max-h-[680px] min-h-[380px] md:h-[60svh]">
+          <div className="relative z-10 flex flex-col justify-center border-border px-6 py-12 sm:px-10 md:py-16 lg:col-span-7 lg:border-r lg:px-16">
+            <div className="flex items-center gap-4">
+              <span aria-hidden="true" className="h-0.5 w-12 bg-gold" />
+              <span className="label text-primary">Premium Ugandan security</span>
+            </div>
+
+            <h1 className="mt-8 font-display text-[clamp(2.6rem,6.5vw,5rem)] font-extrabold leading-[0.92] tracking-tighter">
+              Securing
+              <br />
+              <span className="text-outline-ink">what matters,</span>
+              <br />
+              day and night.
+            </h1>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ActionLink to="/services" className="justify-center">
+                Explore services
+              </ActionLink>
+              <ActionAnchor
+                href={telHref(company.phone)}
+                variant="outline"
+                className="justify-center"
+              >
+                Talk to us
+              </ActionAnchor>
+            </div>
+
+            <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-2 sm:gap-10">
+              <div>
+                <dt className="label text-muted-foreground">Direct line</dt>
+                <dd className="mt-2 font-display text-lg font-bold">{company.phone}</dd>
+              </div>
+              <div>
+                <dt className="label text-muted-foreground">Operations</dt>
+                <dd className="mt-2 font-display text-lg font-bold">Kampala &amp; Hoima</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="relative min-h-[380px] bg-ink lg:col-span-5 lg:min-h-0">
             <img
               src={img.heroMain}
               alt="Security officer standing post at the lit entrance of a modern building at dusk"
               loading="eager"
               decoding="sync"
               fetchPriority="high"
-              width={1920}
-              height={1200}
+              width={1200}
+              height={1600}
               className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent"
             />
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
-              <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-ink-foreground/80 md:text-xs">
-                Securing what matters, day and night.
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <ActionLink to="/services" className="justify-center">
-                  Explore services
-                </ActionLink>
-                <ActionAnchor
-                  href={telHref(company.phone)}
-                  variant="light"
-                  className="justify-center"
-                >
-                  Talk to us
-                </ActionAnchor>
-              </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-6 border border-gold/30 md:inset-10"
+            />
+            <div className="absolute bottom-10 left-0 hidden bg-gold px-7 py-6 text-ink lg:block lg:-left-12">
+              <p className="font-display text-4xl font-extrabold leading-none">24/7</p>
+              <p className="label mt-2 text-ink/80">Monitored response</p>
             </div>
           </div>
         </div>
@@ -119,6 +142,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 /** Editorial collage: mixed aspect frames so the operation reads as one composition. */
