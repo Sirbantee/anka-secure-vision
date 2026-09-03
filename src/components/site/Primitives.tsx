@@ -160,8 +160,11 @@ export function Figure({
   caption?: string;
 }) {
   return (
-    <figure className={cn("overflow-hidden", className)}>
-      <div className="overflow-hidden bg-cream-deep" style={{ aspectRatio: ratio }}>
+    <figure className={cn(className)}>
+      <div
+        className="overflow-hidden rounded-3xl bg-cream-deep"
+        style={{ aspectRatio: ratio }}
+      >
         <img
           src={src}
           alt={alt}
