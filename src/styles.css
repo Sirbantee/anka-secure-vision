@@ -272,3 +272,9 @@
   }
 }
 
+
+/* Outlined display text used in the home hero headline */
+@utility text-outline-ink {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-foreground);
+}
