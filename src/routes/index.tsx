@@ -81,7 +81,7 @@ function Hero() {
         </h1>
 
         <div className="relative z-10 -mt-[8vw] overflow-hidden rounded-3xl bg-ink text-ink-foreground shadow-[0_40px_90px_-50px_rgba(0,0,0,0.6)] md:rounded-4xl">
-          <div className="relative h-[52svh] min-h-[380px] md:h-[62svh]">
+          <div className="relative h-[52svh] max-h-[680px] min-h-[380px] md:h-[60svh]">
             <img
               src={img.heroMain}
               alt="Security officer standing post at the lit entrance of a modern building at dusk"
