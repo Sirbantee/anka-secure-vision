@@ -25,7 +25,6 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
-import { WaveField } from "@/components/ui/wave-field";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
 const description =
@@ -56,7 +55,6 @@ function HomePage() {
       <Gallery />
       <People />
       <Supervision />
-      <Monitoring />
       <Technology />
       <Industries />
       <CallToAction />
@@ -64,75 +62,64 @@ function HomePage() {
   );
 }
 
-/** Interactive signal field: gives the control room claim something to feel. */
-function Monitoring() {
-  return (
-    <Section tone="deep">
-      <Container>
-        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <Eyebrow>Live monitoring</Eyebrow>
-            <Display level={2} className="mt-5 max-w-[20ch]">
-              Nothing on your site goes unwatched.
-            </Display>
-          </div>
-          <p className="max-w-sm text-sm text-muted-foreground">
-            Cameras, alarms, access points and patrol check-ins all report into one control room,
-            staffed every hour of the day.
-          </p>
-        </Reveal>
-        <Reveal className="mt-8">
-          <WaveField />
-        </Reveal>
-      </Container>
-    </Section>
-  );
-}
-
 function Hero() {
   return (
-    <section className="relative isolate flex min-h-[80svh] flex-col justify-end overflow-hidden bg-ink text-ink-foreground md:min-h-[88svh]">
-      <img
-        src={img.heroMain}
-        alt="Security officer standing post at the lit entrance of a modern building at dusk"
-        loading="eager"
-        decoding="sync"
-        fetchPriority="high"
-        width={1920}
-        height={1200}
-        className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-      />
+    <section className="relative isolate overflow-hidden bg-background pt-20 md:pt-24">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25"
+        className="polka pointer-events-none absolute inset-x-0 top-0 h-64 opacity-40"
       />
-
-      <Container className="relative pb-16 pt-32 md:pb-20 md:pt-36">
-        <h1 className="flex flex-col">
-          <span className="font-display text-[clamp(4.5rem,22vw,15rem)] font-extrabold leading-[0.82] tracking-[-0.05em]">
+      <Container className="relative pb-10 md:pb-14">
+        {/* Wordmark sits behind the photograph, in the logo green */}
+        <h1 className="relative z-0 text-center">
+          <span className="block font-display text-[clamp(5rem,25vw,20rem)] font-extrabold leading-[0.78] tracking-[-0.05em] text-primary/35">
             ANKA
           </span>
-          <span className="mt-4 max-w-[30ch] text-[0.7rem] font-medium uppercase tracking-[0.32em] text-ink-foreground/75 md:text-xs">
-            Securing what matters, day and night.
+          <span className="sr-only">
+            ANKA Security Services, securing what matters, day and night.
           </span>
         </h1>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <ActionLink to="/services" className="justify-center">
-            Explore services
-          </ActionLink>
-          <ActionAnchor
-            href={telHref(company.phone)}
-            variant="light"
-            className="justify-center"
-          >
-            Talk to us
-          </ActionAnchor>
+        <div className="relative z-10 -mt-[8vw] overflow-hidden rounded-3xl bg-ink text-ink-foreground shadow-[0_40px_90px_-50px_rgba(0,0,0,0.6)] md:rounded-4xl">
+          <div className="relative h-[52svh] max-h-[680px] min-h-[380px] md:h-[60svh]">
+            <img
+              src={img.heroMain}
+              alt="Security officer standing post at the lit entrance of a modern building at dusk"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+              width={1920}
+              height={1200}
+              className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent"
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.32em] text-ink-foreground/80 md:text-xs">
+                Securing what matters, day and night.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <ActionLink to="/services" className="justify-center">
+                  Explore services
+                </ActionLink>
+                <ActionAnchor
+                  href={telHref(company.phone)}
+                  variant="light"
+                  className="justify-center"
+                >
+                  Talk to us
+                </ActionAnchor>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
   );
 }
+
 
 /** Editorial collage: mixed aspect frames so the operation reads as one composition. */
 function Gallery() {
@@ -219,7 +206,7 @@ function Gallery() {
               delay={Math.min(i * 60, 320)}
               className={`group ${f.className}`}
             >
-              <figure className="relative h-full overflow-hidden bg-black/40">
+              <figure className="relative h-full overflow-hidden rounded-3xl bg-black/40">
                 <div className="h-full w-full" style={{ aspectRatio: f.ratio }}>
                   <img
                     src={f.src}
@@ -320,7 +307,7 @@ function ServicesIndex() {
                 params={{ slug: s.slug }}
                 className="group block h-full"
               >
-                <div className="relative overflow-hidden bg-ink" style={{ aspectRatio: "4/3" }}>
+                <div className="relative overflow-hidden rounded-3xl bg-ink" style={{ aspectRatio: "4/3" }}>
                   <img
                     src={s.image}
                     alt={s.imageAlt}

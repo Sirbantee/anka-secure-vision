@@ -54,7 +54,7 @@ function AboutPage() {
             Built around the officer <span className="text-primary">on the ground.</span>
           </>
         }
-        lead="ANKA Security Services Limited is a Ugandan security company delivering manned guarding, security technology and rapid response from bases in Kampala and Hoima."
+        lead="Ugandan guarding, security technology and rapid response, from Kampala and Hoima."
         image={img.officersLineup}
         imageAlt="ANKA security officers standing in formation outdoors"
       />

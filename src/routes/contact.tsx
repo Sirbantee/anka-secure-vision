@@ -48,7 +48,7 @@ function ContactPage() {
             Start with an <span className="text-primary">assessment.</span>
           </>
         }
-        lead="Tell us where the premises is and what it holds. We will assess the site and come back with a deployment proposal covering officer numbers, shifts and the technology to support them."
+        lead="Tell us what needs protecting. We will assess the site and propose a deployment."
         image={img.residential}
         imageAlt="ANKA officer at the gate of a walled residential compound"
       />

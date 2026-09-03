@@ -16,9 +16,9 @@
   --radius-md: 3px;
   --radius-lg: 4px;
   --radius-xl: 6px;
-  --radius-2xl: 8px;
-  --radius-3xl: 12px;
-  --radius-4xl: 16px;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
 
   --font-display: "Archivo", "Helvetica Neue", sans-serif;
   --font-sans: "Karla", system-ui, sans-serif;
@@ -270,4 +270,20 @@
     background: var(--color-primary);
     animation: pulse-ring 2s ease-out infinite;
   }
+}
+
+/* Soft polka dot texture that fades out, used behind editorial sections */
+@utility polka {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-foreground) 22%, transparent) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+@utility polka-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.6px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, black, transparent 72%);
 }
