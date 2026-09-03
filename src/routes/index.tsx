@@ -206,7 +206,7 @@ function Gallery() {
               delay={Math.min(i * 60, 320)}
               className={`group ${f.className}`}
             >
-              <figure className="relative h-full overflow-hidden bg-black/40">
+              <figure className="relative h-full overflow-hidden rounded-3xl bg-black/40">
                 <div className="h-full w-full" style={{ aspectRatio: f.ratio }}>
                   <img
                     src={f.src}
@@ -307,7 +307,7 @@ function ServicesIndex() {
                 params={{ slug: s.slug }}
                 className="group block h-full"
               >
-                <div className="relative overflow-hidden bg-ink" style={{ aspectRatio: "4/3" }}>
+                <div className="relative overflow-hidden rounded-3xl bg-ink" style={{ aspectRatio: "4/3" }}>
                   <img
                     src={s.image}
                     alt={s.imageAlt}

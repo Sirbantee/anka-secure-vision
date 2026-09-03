@@ -48,7 +48,7 @@ function IndustriesPage() {
             Every sector has its own <span className="text-primary">failure points.</span>
           </>
         }
-        lead="ANKA trains officers to the protocols of the environment they are deployed into, from airside discipline to guest-facing hospitality."
+        lead="Officers trained to the protocols of the environment they protect."
         image={img.fleet}
         imageAlt="Cargo trucks parked in a fenced logistics yard at dawn"
       />

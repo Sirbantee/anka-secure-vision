@@ -48,7 +48,7 @@ function ServicesPage() {
             <span className="text-primary">one operation.</span>
           </>
         }
-        lead="Each service line is deployed from the same assessment, staffed by the same trained officers and monitored by the same control room."
+        lead="One assessment, one standard, eleven service lines."
         image={img.k9}
         imageAlt="ANKA canine handler patrolling an industrial perimeter with a German Shepherd"
       />

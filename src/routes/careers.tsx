@@ -48,7 +48,7 @@ function CareersPage() {
             We recruit for judgement, then <span className="text-primary">train the rest.</span>
           </>
         }
-        lead="ANKA hires officers, canine handlers, control-room operators and supervisors across Kampala and Hoima."
+        lead="Officers, handlers, operators and supervisors across Kampala and Hoima."
         image={img.officerDetail}
         imageAlt="Close detail of the ANKA uniform shoulder and gold epaulette"
       />

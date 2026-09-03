@@ -50,7 +50,7 @@ function TechnologyPage() {
             Systems that put officers <span className="text-primary">where they matter.</span>
           </>
         }
-        lead="Cameras, alarms, access control and tracking are only worth what they trigger. At ANKA, every signal lands in a monitored control room with response behind it."
+        lead="Every camera, alarm and tracker reports into one monitored control room."
         image={img.controlRoom}
         imageAlt="ANKA control room with a wall of CCTV monitors"
       />

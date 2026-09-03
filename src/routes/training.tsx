@@ -53,7 +53,7 @@ function TrainingPage() {
             Four weeks before an officer <span className="text-primary">ever stands post.</span>
           </>
         }
-        lead="Three weeks on the ANKA Basic Guarding Course, then a fourth week customised to the premises the officer will actually protect."
+        lead="Three weeks of core guarding, then a fourth week built around your premises."
         image={img.trainingDrill}
         imageAlt="ANKA officers formed up on a field during a training drill"
       />
