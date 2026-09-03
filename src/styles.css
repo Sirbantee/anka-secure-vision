@@ -271,3 +271,19 @@
     animation: pulse-ring 2s ease-out infinite;
   }
 }
+
+/* Soft polka dot texture that fades out, used behind editorial sections */
+@utility polka {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-foreground) 22%, transparent) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+@utility polka-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.6px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, black, transparent 72%);
+}
