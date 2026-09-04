@@ -15,6 +15,11 @@ import pxEvent from "@/assets/px-event.webp.asset.json";
 import pxYard from "@/assets/px-yard.webp.asset.json";
 import pxTraining from "@/assets/px-training.webp.asset.json";
 
+import premHero from "@/assets/hero-premium.webp.asset.json";
+import premAbout from "@/assets/about-premium.webp.asset.json";
+import premDetail from "@/assets/detail-premium.webp.asset.json";
+import premControl from "@/assets/control-premium.webp.asset.json";
+
 /**
  * Premium photography set. Frames are art directed so no faces are visible:
  * back views, silhouettes, hands and equipment detail only.
@@ -22,12 +27,12 @@ import pxTraining from "@/assets/px-training.webp.asset.json";
 export const img = {
   logo: logo.url,
 
-  heroMain: pxHero.url,
+  heroMain: premHero.url,
   heroGate: pxGate.url,
-  patrol: pxPatrol.url,
-  trainingDrill: pxLineup.url,
-  officersLineup: pxLineup.url,
-  controlRoom: pxControl.url,
+  patrol: premAbout.url,
+  trainingDrill: premDetail.url,
+  officersLineup: premAbout.url,
+  controlRoom: premControl.url,
   k9: pxK9.url,
   cctv: pxCctv.url,
   classroom: pxTraining.url,
@@ -35,10 +40,10 @@ export const img = {
   event: pxEvent.url,
   access: pxAccess.url,
   fleet: pxYard.url,
-  supervision: pxDetail.url,
+  supervision: premDetail.url,
   residential: pxGate.url,
   alarm: pxResponse.url,
-  officerDetail: pxDetail.url,
+  officerDetail: premDetail.url,
 
   svcGuarding: pxPatrol.url,
   svcEvent: pxEvent.url,
