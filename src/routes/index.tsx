@@ -64,30 +64,24 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative bg-background pt-16 md:pt-20">
-      <div className="relative grid min-h-[78vh] lg:grid-cols-12">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-6 left-0 z-0 select-none font-display text-[24vw] font-extrabold leading-none tracking-tighter text-foreground/[0.04] lg:text-[16vw]"
-        >
-          ANKA
-        </span>
-
-        <div className="relative z-10 flex flex-col justify-center px-6 py-14 sm:px-10 md:py-20 lg:col-span-6 lg:px-16 xl:px-24">
-          <div className="flex items-center gap-4">
-            <span aria-hidden="true" className="h-0.5 w-12 bg-gold" />
-            <span className="label text-primary">Premium Ugandan security</span>
+    <section className="relative overflow-hidden bg-background pt-16 md:pt-20">
+      <div className="relative grid min-h-[72vh] lg:grid-cols-12">
+        <div className="relative z-10 flex flex-col justify-center px-6 py-14 sm:px-10 md:py-18 lg:col-span-6 lg:px-16 xl:px-20">
+          <div className="flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-10 bg-gold" />
+            <span className="label text-primary">Security services, Uganda</span>
           </div>
 
-          <h1 className="mt-8 font-display text-[clamp(2.6rem,6vw,5.25rem)] font-extrabold leading-[0.92] tracking-tighter">
-            Securing
-            <br />
-            <span className="text-outline-ink">what matters,</span>
-            <br />
-            day and night.
+          <h1 className="mt-7 leading-[0.82]">
+            <span className="block font-display text-[clamp(4.5rem,13vw,9rem)] font-extrabold tracking-[-0.05em] text-foreground">
+              ANKA
+            </span>
+            <span className="mt-5 block max-w-[26ch] font-sans text-sm font-normal leading-relaxed tracking-normal text-muted-foreground md:text-base">
+              Securing what matters, day and night.
+            </span>
           </h1>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ActionLink to="/services" className="justify-center">
               Explore services
             </ActionLink>
@@ -100,36 +94,40 @@ function Hero() {
             </ActionAnchor>
           </div>
 
-          <dl className="mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-2 sm:gap-10">
+          <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:gap-10">
             <div>
               <dt className="label text-muted-foreground">Direct line</dt>
-              <dd className="mt-2 font-display text-lg font-bold">{company.phone}</dd>
+              <dd className="mt-2 font-display text-base font-bold">{company.phone}</dd>
             </div>
             <div>
               <dt className="label text-muted-foreground">Operations</dt>
-              <dd className="mt-2 font-display text-lg font-bold">Kampala &amp; Hoima</dd>
+              <dd className="mt-2 font-display text-base font-bold">Kampala &amp; Hoima</dd>
             </div>
           </dl>
         </div>
 
-        <div className="relative min-h-[60vh] bg-ink lg:col-span-6 lg:min-h-0">
+        <div className="relative min-h-[52vh] bg-ink lg:col-span-6 lg:min-h-0">
           <img
             src={img.heroMain}
             alt="Security officer standing post at the lit entrance of a modern building at dusk"
             loading="eager"
             decoding="sync"
             fetchPriority="high"
-            width={1200}
-            height={1600}
-            className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+            width={1408}
+            height={1760}
+            className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent lg:w-24"
           />
-          <div className="absolute bottom-0 left-0 bg-gold px-7 py-6 text-ink">
-            <p className="font-display text-4xl font-extrabold leading-none">24/7</p>
-            <p className="label mt-2 text-ink/80">Monitored response</p>
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent"
+          />
+          <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-full bg-ink/70 px-5 py-3 backdrop-blur-md">
+            <span aria-hidden="true" className="live-dot" />
+            <p className="label text-ink-foreground">24/7 monitored response</p>
           </div>
         </div>
       </div>
@@ -140,71 +138,55 @@ function Hero() {
 
 
 
-/** Editorial collage: mixed aspect frames so the operation reads as one composition. */
+/** Editorial collage: one lead frame, a stacked column and a wide closing band. */
 function Gallery() {
-  const frames = [
+  const lead = {
+    src: img.patrol,
+    alt: "Two security officers walking a patrol line along a concrete perimeter wall at dawn",
+    caption: "Manned guarding",
+    note: "Posted officers, patrol routes and visitor control on every shift.",
+  };
+
+  const column = [
     {
-      src: img.patrol,
-      alt: "Security officer walking a patrol route through a marble lobby",
-      caption: "Manned guarding",
-      note: "Posted officers, patrol routes and visitor control on every shift.",
-      className: "sm:col-span-4 sm:row-span-2",
-      ratio: "4/5",
-    },
-    {
-      src: img.cctv,
-      alt: "Dome CCTV camera mounted on a concrete facade at dusk",
-      caption: "CCTV and surveillance",
-      className: "sm:col-span-5",
-      ratio: "16/10",
-    },
-    {
-      src: img.access,
-      alt: "Access card presented at a glass turnstile reader",
-      caption: "Access control",
-      className: "sm:col-span-3",
-      ratio: "4/3",
-    },
-    {
-      src: img.k9,
-      alt: "Canine unit with handler on a lit driveway at night",
-      caption: "Canine patrol",
-      className: "sm:col-span-3",
-      ratio: "4/3",
-    },
-    {
-      src: img.alarm,
-      alt: "Marked security response vehicle at an industrial gate at night",
-      caption: "Armed response",
-      className: "sm:col-span-5",
-      ratio: "16/10",
+      src: img.controlRoom,
+      alt: "Operator monitoring a wall of CCTV screens in a dark control room",
+      caption: "Monitoring",
     },
     {
       src: img.officerDetail,
       alt: "Radio and uniform detail of a security officer",
       caption: "Standards",
-      className: "sm:col-span-3",
-      ratio: "3/4",
-    },
-    {
-      src: img.vip,
-      alt: "Close protection officer opening a vehicle door outside a hotel",
-      caption: "Close protection",
-      className: "sm:col-span-5",
-      ratio: "16/10",
-    },
-    {
-      src: img.fleet,
-      alt: "Secured logistics yard at dusk seen from the air",
-      caption: "Industrial sites",
-      className: "sm:col-span-4",
-      ratio: "4/3",
     },
   ];
 
+  const band = [
+    { src: img.cctv, alt: "Dome CCTV camera mounted on a concrete facade at dusk", caption: "CCTV" },
+    { src: img.access, alt: "Access card presented at a glass turnstile reader", caption: "Access control" },
+    { src: img.k9, alt: "Canine unit with handler on a lit driveway at night", caption: "Canine" },
+    { src: img.alarm, alt: "Marked security response vehicle at an industrial gate at night", caption: "Response" },
+  ];
+
   return (
-    <Section tone="ink">
-      <Container>
+    <Section tone="ink" className="relative overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-0 h-[34rem] w-[34rem] rounded-full opacity-60 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklab, var(--color-primary) 26%, transparent), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full opacity-50 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklab, var(--color-gold) 22%, transparent), transparent 70%)",
+        }}
+      />
+
+      <Container className="relative">
         <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
             <Eyebrow tone="gold">More about ANKA</Eyebrow>
@@ -218,33 +200,73 @@ function Gallery() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-12 sm:gap-4">
-          {frames.map((f, i) => (
-            <Reveal
-              key={f.caption}
-              delay={Math.min(i * 60, 320)}
-              className={`group ${f.className}`}
-            >
-              <figure className="relative h-full overflow-hidden rounded-3xl bg-black/40">
-                <div className="h-full w-full" style={{ aspectRatio: f.ratio }}>
+        <div className="mt-10 grid gap-4 lg:grid-cols-12">
+          <Reveal className="group lg:col-span-8">
+            <figure className="relative h-full overflow-hidden rounded-4xl border border-ink-border">
+              <div className="h-full w-full" style={{ aspectRatio: "16/11" }}>
+                <img
+                  src={lead.src}
+                  alt={lead.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                <p className="label text-gold">{lead.caption}</p>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-foreground/85">
+                  {lead.note}
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="grid gap-4 lg:col-span-4">
+            {column.map((f, i) => (
+              <Reveal key={f.caption} delay={80 + i * 80} className="group">
+                <figure className="relative overflow-hidden rounded-4xl border border-ink-border">
+                  <div className="w-full" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={f.src}
+                      alt={f.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="label text-gold">{f.caption}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {band.map((f, i) => (
+            <Reveal key={f.caption} delay={Math.min(i * 70, 280)} className="group">
+              <figure className="relative overflow-hidden rounded-3xl border border-ink-border">
+                <div className="w-full" style={{ aspectRatio: "1/1" }}>
                   <img
                     src={f.src}
                     alt={f.alt}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                   />
                 </div>
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 p-4 md:p-5">
+                <figcaption className="absolute inset-x-0 bottom-0 p-4">
                   <p className="label text-gold">{f.caption}</p>
-                  {f.note ? (
-                    <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-foreground/85">
-                      {f.note}
-                    </p>
-                  ) : null}
                 </figcaption>
               </figure>
             </Reveal>
