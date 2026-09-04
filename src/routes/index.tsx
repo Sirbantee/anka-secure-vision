@@ -76,7 +76,7 @@ function Hero() {
             <span className="block font-display text-[clamp(4.5rem,13vw,9rem)] font-extrabold tracking-[-0.05em] text-foreground">
               ANKA
             </span>
-            <span className="mt-5 block max-w-[26ch] font-sans text-sm font-normal leading-relaxed tracking-normal text-muted-foreground md:text-base">
+            <span className="mt-5 block max-w-[34ch] font-sans text-sm font-normal leading-relaxed tracking-normal text-muted-foreground md:text-base">
               Securing what matters, day and night.
             </span>
           </h1>
