@@ -312,9 +312,9 @@ function Statement() {
           <Reveal delay={120} className="lg:pt-24">
             <Figure
               src={img.officersLineup}
-              alt="A line of ANKA officers standing at attention at sunrise, seen from behind"
+              alt="ANKA officers walking a patrol line along a perimeter wall at dawn"
               ratio="4/5"
-              caption="ANKA officers on parade"
+              caption="Patrol discipline, every shift"
             />
           </Reveal>
         </div>
@@ -411,7 +411,7 @@ function People() {
           <Reveal>
             <Figure
               src={img.trainingDrill}
-              alt="ANKA officers formed up at attention at sunrise, seen from behind"
+              alt="Radio and uniform detail of an ANKA officer on duty"
               ratio="5/4"
             />
             <div className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
