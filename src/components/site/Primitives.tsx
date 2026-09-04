@@ -71,9 +71,9 @@ export function Display({
   level?: 1 | 2 | 3;
 }) {
   const sizes = {
-    1: "text-[clamp(2.6rem,7.5vw,6.5rem)]",
-    2: "text-[clamp(2rem,4.6vw,4rem)]",
-    3: "text-[clamp(1.5rem,2.4vw,2.25rem)]",
+    1: "text-[clamp(2rem,4.4vw,3.5rem)]",
+    2: "text-[clamp(1.6rem,2.9vw,2.5rem)]",
+    3: "text-[clamp(1.25rem,1.7vw,1.6rem)]",
   } as const;
   const Tag = (level === 1 ? "h1" : level === 2 ? "h2" : "h3") as "h1";
   return <Tag className={cn(sizes[level], "font-display", className)}>{children}</Tag>;
