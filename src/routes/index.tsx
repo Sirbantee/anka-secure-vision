@@ -1,27 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, Check, Radio, ShieldCheck } from "lucide-react";
 import {
   company,
-  guardingInclusions,
   industries,
   officerStandards,
   operatingModel,
   services,
-  supervisionModel,
   technologyCapabilities,
   telHref,
 } from "@/content/anka";
 import { img } from "@/content/images";
-
-import {
-  ActionAnchor,
-  ActionLink,
-  Container,
-  Display,
-  Eyebrow,
-  Figure,
-  Lead,
-  Section,
-} from "@/components/site/Primitives";
+import { ActionAnchor, ActionLink, Container, Display, Eyebrow } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
@@ -37,6 +26,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -49,13 +40,9 @@ function HomePage() {
     <>
       <Hero />
       <ClientMarquee />
-      <Statement />
-      <ServicesIndex />
-      <Method />
-      <Gallery />
-      <People />
-      <Supervision />
-      <Technology />
+      <ServiceCards />
+      <OperationsShowcase />
+      <Standards />
       <Industries />
       <CallToAction />
     </>
@@ -64,479 +51,197 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background pt-16 md:pt-20">
-      <div className="relative grid min-h-[72vh] lg:grid-cols-12">
-        <div className="relative z-10 flex flex-col justify-center px-6 py-14 sm:px-10 md:py-18 lg:col-span-6 lg:px-16 xl:px-20">
-          <div className="flex items-center gap-3">
-            <span aria-hidden="true" className="h-px w-10 bg-gold" />
-            <span className="label text-primary">Security services, Uganda</span>
-          </div>
+    <section className="relative isolate flex min-h-[76svh] items-end overflow-hidden bg-ink pt-16 text-ink-foreground md:min-h-[82svh] md:pt-20">
+      <img
+        src={img.heroMain}
+        alt="Security professional standing at the entrance of a premium commercial property at dusk"
+        loading="eager"
+        decoding="sync"
+        fetchPriority="high"
+        width={1408}
+        height={1760}
+        className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+      />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/60 to-ink/10" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/30" />
 
-          <h1 className="mt-7 leading-[0.82]">
-            <span className="block font-display text-[clamp(4.5rem,13vw,9rem)] font-extrabold tracking-[-0.05em] text-foreground">
-              ANKA
-            </span>
-            <span className="mt-5 block max-w-[34ch] font-sans text-sm font-normal leading-relaxed tracking-normal text-muted-foreground md:text-base">
-              Securing what matters, day and night.
-            </span>
+      <Container className="relative pb-8 pt-24 md:pb-10 md:pt-32">
+        <div className="max-w-3xl">
+          <Eyebrow tone="gold">Security services, Uganda</Eyebrow>
+          <h1 className="mt-4 font-display text-[clamp(4rem,10vw,8rem)] font-extrabold leading-[0.82] text-ink-foreground">
+            ANKA
           </h1>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ActionLink to="/services" className="justify-center">
-              Explore services
-            </ActionLink>
-            <ActionAnchor
-              href={telHref(company.phone)}
-              variant="outline"
-              className="justify-center"
-            >
+          <p className="mt-5 max-w-md text-base text-ink-foreground/85 md:text-lg">
+            Securing what matters, day and night.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ActionLink to="/services">Explore services</ActionLink>
+            <ActionAnchor href={telHref(company.phone)} variant="light">
               Talk to us
             </ActionAnchor>
           </div>
-
-          <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:gap-10">
-            <div>
-              <dt className="label text-muted-foreground">Direct line</dt>
-              <dd className="mt-2 font-display text-base font-bold">{company.phone}</dd>
-            </div>
-            <div>
-              <dt className="label text-muted-foreground">Operations</dt>
-              <dd className="mt-2 font-display text-base font-bold">Kampala &amp; Hoima</dd>
-            </div>
-          </dl>
         </div>
 
-        <div className="relative min-h-[52vh] bg-ink lg:col-span-6 lg:min-h-0">
-          <img
-            src={img.heroMain}
-            alt="Security officer standing post at the lit entrance of a modern building at dusk"
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-            width={1408}
-            height={1760}
-            className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent lg:w-24"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent"
-          />
-          <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-full bg-ink/70 px-5 py-3 backdrop-blur-md">
-            <span aria-hidden="true" className="live-dot" />
-            <p className="label text-ink-foreground">24/7 monitored response</p>
-          </div>
+        <div className="mt-12 grid gap-3 sm:grid-cols-3 lg:ml-auto lg:max-w-3xl">
+          {[
+            ["Coverage", "Kampala & Hoima"],
+            ["Control room", "Monitored 24/7"],
+            ["Established", company.founded],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-xl border border-ink-border bg-ink/55 px-5 py-4 backdrop-blur-md">
+              <p className="label text-gold">{label}</p>
+              <p className="mt-2 font-display text-sm font-semibold">{value}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
 
+const featuredServices = [services[0], services[4], services[5], services[1], services[6], services[9]].filter(
+  (service): service is (typeof services)[number] => Boolean(service),
+);
 
-
-
-/** Editorial collage: one lead frame, a stacked column and a wide closing band. */
-function Gallery() {
-  const lead = {
-    src: img.patrol,
-    alt: "Two security officers walking a patrol line along a concrete perimeter wall at dawn",
-    caption: "Manned guarding",
-    note: "Posted officers, patrol routes and visitor control on every shift.",
-  };
-
-  const column = [
-    {
-      src: img.controlRoom,
-      alt: "Operator monitoring a wall of CCTV screens in a dark control room",
-      caption: "Monitoring",
-    },
-    {
-      src: img.officerDetail,
-      alt: "Radio and uniform detail of a security officer",
-      caption: "Standards",
-    },
-  ];
-
-  const band = [
-    { src: img.cctv, alt: "Dome CCTV camera mounted on a concrete facade at dusk", caption: "CCTV" },
-    { src: img.access, alt: "Access card presented at a glass turnstile reader", caption: "Access control" },
-    { src: img.k9, alt: "Canine unit with handler on a lit driveway at night", caption: "Canine" },
-    { src: img.alarm, alt: "Marked security response vehicle at an industrial gate at night", caption: "Response" },
-  ];
-
+function ServiceCards() {
   return (
-    <Section tone="ink" className="relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-0 h-[34rem] w-[34rem] rounded-full opacity-60 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, color-mix(in oklab, var(--color-primary) 26%, transparent), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full opacity-50 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, color-mix(in oklab, var(--color-gold) 22%, transparent), transparent 70%)",
-        }}
-      />
-
-      <Container className="relative">
-        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <section id="services" className="bg-cream-deep py-16 md:py-20">
+      <Container>
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <Eyebrow tone="gold">More about ANKA</Eyebrow>
-            <Display level={2} className="mt-4 max-w-[20ch]">
-              One operation, every layer.
+            <Eyebrow>Integrated protection</Eyebrow>
+            <Display level={2} className="mt-4 max-w-[22ch]">
+              One operation. Every layer.
             </Display>
           </div>
-          <p className="max-w-sm text-sm text-ink-muted">
-            Officers on post, technology on the perimeter and a response team on standby, run as a
-            single service across Uganda.
+          <p className="max-w-md text-sm text-muted-foreground md:text-base">
+            People, monitoring and response working as one system around your premises.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-12">
-          <Reveal className="group lg:col-span-8">
-            <figure className="relative h-full overflow-hidden rounded-4xl border border-ink-border">
-              <div className="h-full w-full" style={{ aspectRatio: "16/11" }}>
-                <img
-                  src={lead.src}
-                  alt={lead.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                />
-              </div>
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                <p className="label text-gold">{lead.caption}</p>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-foreground/85">
-                  {lead.note}
-                </p>
-              </figcaption>
-            </figure>
-          </Reveal>
-
-          <div className="grid gap-4 lg:col-span-4">
-            {column.map((f, i) => (
-              <Reveal key={f.caption} delay={80 + i * 80} className="group">
-                <figure className="relative overflow-hidden rounded-4xl border border-ink-border">
-                  <div className="w-full" style={{ aspectRatio: "4/3" }}>
-                    <img
-                      src={f.src}
-                      alt={f.alt}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
-                    />
+        <div className="mt-10 grid auto-rows-[19rem] gap-4 md:grid-cols-2 lg:grid-cols-12">
+          {featuredServices.map((service, index) => {
+            const span = index === 0 || index === 3 ? "lg:col-span-7" : "lg:col-span-5";
+            return (
+              <Reveal key={service.slug} delay={Math.min(index * 55, 260)} className={span}>
+                <Link
+                  to="/services/$slug"
+                  params={{ slug: service.slug }}
+                  className="group media-card block h-full text-ink-foreground"
+                >
+                  <img src={service.image} alt={service.imageAlt} loading="lazy" className="image-drift h-full w-full object-cover" />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 md:p-6">
+                    <div>
+                      <p className="label text-gold">{service.index}</p>
+                      <h3 className="mt-2 max-w-md font-display text-xl font-semibold md:text-2xl">{service.name}</h3>
+                      <p className="mt-2 hidden max-w-lg text-sm text-ink-muted sm:block">{service.summary}</p>
+                    </div>
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full border border-ink-border bg-ink/50 backdrop-blur-md transition-colors group-hover:bg-primary">
+                      <ArrowUpRight aria-hidden="true" className="size-4" />
+                    </span>
                   </div>
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent"
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="label text-gold">{f.caption}</p>
-                  </figcaption>
-                </figure>
+                </Link>
               </Reveal>
-            ))}
-          </div>
+            );
+          })}
         </div>
-
-        <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {band.map((f, i) => (
-            <Reveal key={f.caption} delay={Math.min(i * 70, 280)} className="group">
-              <figure className="relative overflow-hidden rounded-3xl border border-ink-border">
-                <div className="w-full" style={{ aspectRatio: "1/1" }}>
-                  <img
-                    src={f.src}
-                    alt={f.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                  <p className="label text-gold">{f.caption}</p>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
+        <div className="mt-8 flex justify-end">
+          <ActionLink to="/services" variant="outline">View all services</ActionLink>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
 
-
-function Statement() {
+function OperationsShowcase() {
+  const steps = operatingModel.slice(0, 4);
   return (
-    <Section>
+    <section className="bg-green-deep py-16 text-ink-foreground md:py-20">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
-          <Reveal>
-            <Eyebrow>Who we are</Eyebrow>
-            <Display level={2} className="mt-8 max-w-[24ch]">
-              Security is a discipline, not a uniform.
-            </Display>
-            <div className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-foreground/80">
-              <p>
-                {company.name} is a Ugandan security company protecting homes, businesses,
-                industrial sites and events. We recruit selectively, train intensively and
-                supervise continuously, because the officer at the gate is the whole service.
-              </p>
-              <p>
-                Every deployment begins with an assessment of the premises. Officer numbers, shift
-                patterns, post orders and technology are set from that assessment, then reviewed
-                as the site changes.
-              </p>
-            </div>
-            <div className="mt-10">
-              <Link
-                to="/about"
-                className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em]"
-              >
-                More about ANKA
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={120} className="lg:pt-24">
-            <Figure
-              src={img.officersLineup}
-              alt="ANKA officers walking a patrol line along a perimeter wall at dawn"
-              ratio="4/5"
-              caption="Patrol discipline, every shift"
-            />
-          </Reveal>
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function ServicesIndex() {
-  return (
-    <Section tone="deep" id="services">
-      <Container>
-        <Reveal className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div>
-            <Eyebrow>What we do</Eyebrow>
-            <Display level={2} className="mt-8 max-w-[20ch]">
-              <>Eleven service lines, one standard.</>
-            </Display>
-          </div>
-          <p className="max-w-sm text-muted-foreground">
-            Guarding, technology and response are delivered as one operation, so what a camera sees
-            and what an officer does are never separate.
+        <Reveal className="text-center">
+          <Eyebrow tone="gold">The ANKA standard</Eyebrow>
+          <Display level={2} className="mx-auto mt-4 max-w-[22ch]">Protection designed around the site.</Display>
+          <p className="mx-auto mt-5 max-w-xl text-sm text-ink-muted md:text-base">
+            Every deployment begins with the premises, then combines trained officers, live oversight and clear escalation.
           </p>
         </Reveal>
 
-        <ul className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal as="li" key={s.slug} delay={Math.min(i * 45, 320)}>
-              <Link
-                to="/services/$slug"
-                params={{ slug: s.slug }}
-                className="group block h-full"
-              >
-                <div className="relative overflow-hidden rounded-3xl bg-ink" style={{ aspectRatio: "4/3" }}>
-                  <img
-                    src={s.image}
-                    alt={s.imageAlt}
-                    loading="lazy"
-                    width={1600}
-                    height={1200}
-                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
-                  />
-                  <span className="label absolute left-0 top-0 bg-ink/80 px-3 py-2 text-[0.55rem] text-gold backdrop-blur-sm">
-                    {s.index}
-                  </span>
-                </div>
-                <h3 className="mt-5 font-display text-xl tracking-tight transition-colors group-hover:text-primary md:text-2xl">
-                  {s.name}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.summary}</p>
-              </Link>
-            </Reveal>
-          ))}
-        </ul>
-
-      </Container>
-    </Section>
-  );
-}
-
-function Method() {
-  return (
-    <Section tone="ink">
-      <Container>
-        <Reveal>
-          <Eyebrow tone="gold">How we operate</Eyebrow>
-          <Display level={2} className="mt-8 max-w-[22ch]">
-            Understand, train, deploy, supervise.
-          </Display>
-        </Reveal>
-        <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
-          {operatingModel.map((step, i) => (
-            <Reveal
-              key={step.step}
-              delay={Math.min(i * 70, 400)}
-              className="card-lift border-t-2 border-ink-border px-4 py-8"
-            >
-              <p className="font-display text-4xl text-primary">{step.step}</p>
-              <h3 className="mt-6 font-display text-xl">{step.title}</h3>
-              <p className="mt-3 text-sm text-ink-muted">{step.body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function People() {
-  return (
-    <Section>
-      <Container>
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <Figure
-              src={img.trainingDrill}
-              alt="Radio and uniform detail of an ANKA officer on duty"
-              ratio="5/4"
-            />
-            <div className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
-              {officerStandards.map((o) => (
-                <div key={o.label} className="border-t border-border pt-4">
-                  <p className="label text-muted-foreground">{o.label}</p>
-                  <p className="mt-2 text-sm">{o.value}</p>
-                </div>
-              ))}
+        <Reveal className="mt-10 rounded-2xl bg-background p-3 text-foreground md:p-5">
+          <div className="relative overflow-hidden rounded-xl bg-ink" style={{ aspectRatio: "16/8" }}>
+            <img src={img.controlRoom} alt="ANKA operator monitoring security feeds in the control room" loading="lazy" className="h-full w-full object-cover" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/20 to-transparent" />
+            <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-full bg-ink/70 px-4 py-3 text-ink-foreground backdrop-blur-md">
+              <Radio aria-hidden="true" className="size-4 text-primary" />
+              <span className="label">Live oversight, every shift</span>
             </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <Eyebrow>The officer</Eyebrow>
-            <Display level={2} className="mt-8 max-w-[20ch]">
-              Selected, vetted, then trained for four weeks.
-            </Display>
-            <p className="mt-8 max-w-xl text-lg text-foreground/80">
-              Candidates are screened on education, conduct, language and presentation, and vetted
-              on family, residence, employment history and referees. Only then do they enter the
-              ANKA training system.
-            </p>
-            <div className="mt-8 space-y-8">
-              {guardingInclusions.map((g) => (
-                <div key={g.title} className="border-t border-border pt-5">
-                  <h3 className="font-display text-lg">{g.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{g.items.join(" / ")}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <ActionLink to="/training" variant="outline">
-                Inside the training
-              </ActionLink>
-            </div>
-          </Reveal>
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function Supervision() {
-  return (
-    <Section tone="deep">
-      <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal>
-            <Eyebrow>Supervision</Eyebrow>
-            <Display level={2} className="mt-8">
-              Checked, evaluated, corrected.
-            </Display>
-            <p className="mt-8 max-w-lg text-lg text-foreground/80">
-              Supervisors and top management carry out random and surprise checks on deployed
-              posts. Where standards slip, the response is immediate: correction on site,
-              re-instruction, probation, or replacement.
-            </p>
-            <Figure
-              src={img.supervision}
-              alt="Radio and uniform detail of an ANKA officer on night duty"
-              ratio="16/10"
-              className="mt-8"
-            />
-          </Reveal>
-          <Reveal delay={120} className="space-y-10">
-            {supervisionModel.map((s) => (
-              <div key={s.stage} className="border-t border-border pt-6">
-                <h3 className="font-display text-2xl">{s.stage}</h3>
-                <ul className="mt-5 space-y-3">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex gap-4 text-sm text-foreground/80">
-                      <span aria-hidden="true" className="mt-2 h-px w-5 shrink-0 bg-primary" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
+          </div>
+          <div className="grid gap-5 px-2 pb-3 pt-6 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step) => (
+              <div key={step.step} className="border-t border-border pt-4">
+                <p className="label text-primary">{step.step}</p>
+                <h3 className="mt-3 font-display text-lg">{step.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{step.body}</p>
               </div>
             ))}
+          </div>
+        </Reveal>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          <Reveal className="media-card group min-h-[25rem] border-ink-border">
+            <img src={img.patrol} alt="Security officers conducting a disciplined perimeter patrol" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/10 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6">
+              <Eyebrow tone="gold">On the ground</Eyebrow>
+              <h3 className="mt-3 max-w-md font-display text-2xl">Officers trained for the environment.</h3>
+            </div>
+          </Reveal>
+          <Reveal delay={90} className="rounded-2xl border border-ink-border bg-ink p-7 md:p-9">
+            <ShieldCheck aria-hidden="true" className="size-9 text-primary" strokeWidth={1.5} />
+            <Eyebrow tone="gold" className="mt-10">One accountable operation</Eyebrow>
+            <h3 className="mt-4 max-w-md font-display text-2xl">Guarding, technology and response stay connected.</h3>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {technologyCapabilities.map((capability) => (
+                <div key={capability.title} className="rounded-xl border border-ink-border p-4">
+                  <p className="font-display text-sm font-semibold">{capability.title}</p>
+                  <p className="mt-2 text-xs text-ink-muted">{capability.items.slice(0, 2).join(" · ")}</p>
+                </div>
+              ))}
+            </div>
+            <ActionLink to="/technology" variant="light" className="mt-8">Explore technology</ActionLink>
           </Reveal>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
 
-function Technology() {
+function Standards() {
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-      <img
-        src={img.controlRoom}
-        alt=""
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-60"
-      />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/45" />
-      <Container className="relative py-16 md:py-20">
-        <Reveal className="max-w-3xl">
-          <Eyebrow tone="gold">Technology</Eyebrow>
-          <Display level={2} className="mt-8">
-            A control room that never closes.
-          </Display>
-          <p className="mt-8 text-lg text-ink-muted">
-            CCTV, alarms, access control and vehicle tracking all report into one monitored control
-            room, where operators verify and escalate to response teams around the clock.
+    <section className="bg-background py-16 md:py-20">
+      <Container>
+        <Reveal className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <Eyebrow>Built for trust</Eyebrow>
+            <Display level={2} className="mt-4 max-w-[18ch]">Discipline you can verify.</Display>
+          </div>
+          <p className="max-w-xl text-muted-foreground">
+            Selective recruitment, documented vetting, site-specific training and active supervision shape every ANKA deployment.
           </p>
         </Reveal>
-        <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
-          {technologyCapabilities.map((c, i) => (
-            <Reveal
-              key={c.title}
-              delay={Math.min(i * 70, 300)}
-              className="card-lift border-t-2 border-ink-border px-4 py-7"
-            >
-              <h3 className="font-display text-lg">{c.title}</h3>
-              <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-                {c.items.map((it) => (
-                  <li key={it}>{it}</li>
-                ))}
-              </ul>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="media-card group min-h-[23rem] md:row-span-2 lg:min-h-full">
+            <img src={img.trainingDrill} alt="ANKA officer equipment and radio detail during training" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
+            <p className="label absolute bottom-5 left-5 text-gold">Prepared before deployment</p>
+          </Reveal>
+          {officerStandards.slice(0, 4).map((standard, index) => (
+            <Reveal key={standard.label} delay={index * 55} className="rounded-2xl border border-border bg-card p-6 md:p-7">
+              <Check aria-hidden="true" className="size-5 text-primary" />
+              <p className="label mt-8 text-muted-foreground">{standard.label}</p>
+              <p className="mt-3 font-display text-lg font-semibold leading-snug">{standard.value}</p>
             </Reveal>
           ))}
-        </div>
-        <div className="mt-14">
-          <ActionLink to="/technology" variant="light">
-            Technology in detail
-          </ActionLink>
         </div>
       </Container>
     </section>
@@ -545,34 +250,25 @@ function Technology() {
 
 function Industries() {
   return (
-    <Section>
+    <section className="bg-cream-deep py-16 md:py-20">
       <Container>
-        <Reveal className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <Eyebrow>Industries</Eyebrow>
-            <Display level={2} className="mt-8 max-w-[22ch]">
-              Trained for the environment, not just the job.
-            </Display>
+            <Display level={2} className="mt-4 max-w-[22ch]">Security shaped around the operation.</Display>
           </div>
-          <Link
-            to="/industries"
-            className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em]"
-          >
-            All industries
-          </Link>
+          <Link to="/industries" className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em]">All industries</Link>
         </Reveal>
-        <div className="mt-14 flex flex-wrap gap-3">
-          {industries.map((ind, i) => (
-            <Reveal
-              key={ind.name}
-              delay={Math.min(i * 45, 300)}
-              className="card-lift border border-border bg-card px-6 py-4 font-display text-lg tracking-tight hover:bg-primary/10 hover:text-primary"
-            >
-              {ind.name}
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {industries.map((industry, index) => (
+            <Reveal key={industry.name} delay={Math.min(index * 45, 240)} className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary">
+              <p className="label text-primary">0{index + 1}</p>
+              <h3 className="mt-5 font-display text-lg">{industry.name}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{industry.body}</p>
             </Reveal>
           ))}
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
