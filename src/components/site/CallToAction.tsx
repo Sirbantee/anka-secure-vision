@@ -13,15 +13,17 @@ export function CallToAction({
   body?: string;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+    <section className="bg-background py-6 text-ink-foreground md:py-10">
+      <Container>
+      <div className="relative isolate overflow-hidden rounded-3xl border border-border bg-panel">
       <img
         src={img.officerDetail}
         alt=""
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-55"
+        className="absolute inset-0 h-full w-full object-cover opacity-35"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/72 to-ink/45" />
-      <Container className="relative py-16 md:py-20">
+      <div className="relative px-6 py-14 md:px-12 md:py-20">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="gold">{eyebrow}</Eyebrow>
           <Display level={2} className="mt-6">
@@ -35,6 +37,8 @@ export function CallToAction({
             </ActionAnchor>
           </div>
         </Reveal>
+      </div>
+      </div>
       </Container>
     </section>
   );
