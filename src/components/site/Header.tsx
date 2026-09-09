@@ -63,14 +63,14 @@ export function Header() {
         Skip to content
       </a>
 
-      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5">
-        <div className="mx-auto flex w-full max-w-[84rem] items-center justify-between gap-6 rounded-2xl border border-border bg-background/90 px-4 py-2 shadow-2xl backdrop-blur-xl md:px-6">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-[86rem] items-center justify-between gap-6 px-5 py-2.5 md:px-8 lg:px-12">
           <Link
             to="/"
             className="flex shrink-0 items-center"
             aria-label={`${company.name} home`}
           >
-            <img src={img.logo} alt="ANKA Security Services Limited" className="h-8 w-auto md:h-10" />
+            <img src={img.logo} alt="ANKA Security Services Limited" className="h-9 w-auto md:h-11" />
           </Link>
 
           <nav className="hidden items-center lg:flex" aria-label="Primary">
@@ -88,7 +88,7 @@ export function Header() {
                   <Link
                     to={item.to}
                     activeOptions={item.to === "/" ? { exact: true } : {}}
-                    className="group flex items-center gap-2 px-3 py-2.5 font-sans text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-foreground/65 transition-colors hover:text-foreground data-[status=active]:text-primary"
+                    className="group flex items-center gap-2 px-3 py-2.5 font-display text-[0.7rem] font-bold uppercase tracking-[0.14em] text-foreground/65 transition-colors hover:text-foreground data-[status=active]:text-primary"
                   >
                     <Icon
                       aria-hidden="true"
@@ -105,7 +105,7 @@ export function Header() {
             })}
             <a
               href={telHref(company.phone)}
-              className="ml-3 flex shrink-0 items-center gap-2 whitespace-nowrap rounded-lg bg-primary px-4 py-2.5 font-sans text-[0.66rem] font-semibold uppercase tracking-[0.12em] text-primary-foreground transition-colors hover:bg-accent"
+              className="ml-3 flex shrink-0 items-center gap-2 whitespace-nowrap bg-primary px-4 py-2.5 font-display text-[0.7rem] font-bold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-green-deep"
             >
               <Phone aria-hidden="true" className="size-[15px]" strokeWidth={1.75} />
               {company.phone}
@@ -143,7 +143,7 @@ export function Header() {
           onMouseEnter={openMenu}
           onMouseLeave={closeMenu}
           className={cn(
-            "absolute inset-x-5 top-full mt-2 hidden rounded-2xl border border-border bg-background/98 shadow-2xl backdrop-blur-xl transition-[opacity,transform] duration-300 lg:block",
+            "absolute inset-x-0 top-full hidden border-b border-border bg-background/98 backdrop-blur-md transition-[opacity,transform] duration-300 lg:block",
             menu
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-2 opacity-0",
@@ -180,7 +180,7 @@ export function Header() {
       {/* Mobile overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-background pt-24 transition-[opacity,visibility] duration-300 lg:hidden",
+          "fixed inset-0 z-40 bg-background pt-20 transition-[opacity,visibility] duration-300 lg:hidden",
           open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
@@ -192,7 +192,7 @@ export function Header() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="bento-card flex flex-col gap-3 p-4 hover:text-primary"
+                    className="flex flex-col gap-3 border border-border p-4 transition-colors hover:border-primary hover:text-primary"
                   >
                     <Icon aria-hidden="true" className="size-5" strokeWidth={1.75} />
                     <span className="font-display text-lg tracking-tight">{item.label}</span>

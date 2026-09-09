@@ -30,12 +30,12 @@ export function Section({
 }) {
   const tones = {
     cream: "bg-background text-foreground",
-    deep: "bg-panel text-foreground",
+    deep: "bg-cream-deep text-foreground",
     ink: "bg-ink text-ink-foreground",
     green: "bg-green-deep text-ink-foreground",
   } as const;
   return (
-    <section id={id} className={cn("py-14 md:py-16 lg:py-20", tones[tone], className)}>
+    <section id={id} className={cn("py-14 md:py-18 lg:py-22", tones[tone], className)}>
       {children}
     </section>
   );
@@ -93,8 +93,8 @@ type ActionProps = {
 
 const actionClasses = ({ variant = "solid" }: { variant?: ActionProps["variant"] }) =>
   cn(
-    "group inline-flex items-center gap-3 rounded-lg px-6 py-3.5 font-sans text-[0.75rem] font-semibold uppercase tracking-[0.12em] transition-colors duration-300",
-    variant === "solid" && "bg-primary text-primary-foreground hover:bg-accent",
+    "group inline-flex items-center gap-3 px-7 py-4 font-display text-[0.8rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300",
+    variant === "solid" && "bg-primary text-primary-foreground hover:bg-green-deep",
     variant === "outline" &&
       "border border-foreground/25 text-foreground hover:border-primary hover:text-primary",
     variant === "light" && "border border-ink-border text-ink-foreground hover:bg-white/10",
@@ -162,7 +162,7 @@ export function Figure({
   return (
     <figure className={cn(className)}>
       <div
-        className="overflow-hidden rounded-3xl border border-border bg-panel"
+        className="overflow-hidden rounded-3xl bg-cream-deep"
         style={{ aspectRatio: ratio }}
       >
         <img
@@ -197,27 +197,27 @@ export function PageHeader({
   crumbs?: Crumb[];
 }) {
   return (
-    <header className="relative isolate min-h-[32rem] overflow-hidden bg-ink text-ink-foreground md:min-h-[38rem]">
+    <header className="relative isolate overflow-hidden bg-ink text-ink-foreground">
       <img
         src={image}
         alt={imageAlt}
         loading="eager"
         decoding="sync"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover opacity-65"
+        className="absolute inset-0 h-full w-full object-cover opacity-75"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/15"
+        className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/65 to-ink/35"
       />
       
-      <Container className="relative flex min-h-[32rem] flex-col justify-end pb-12 pt-24 md:min-h-[38rem] md:pb-16 md:pt-32">
+      <Container className="relative pb-12 pt-24 md:pb-16 md:pt-32">
         {crumbs?.length ? <Breadcrumbs items={crumbs} className="mb-6" /> : null}
         <Eyebrow tone="gold">{eyebrow}</Eyebrow>
         <Display level={1} className="mt-5 max-w-4xl">
           {title}
         </Display>
-        <Lead className="mt-5 max-w-xl text-base text-ink-foreground/75 md:text-lg">{lead}</Lead>
+        <Lead className="mt-5 text-base text-ink-foreground/85 md:text-xl">{lead}</Lead>
       </Container>
     </header>
   );
@@ -236,7 +236,7 @@ export function StatRow({
         <div
           key={s.label}
           className={cn(
-            "rounded-2xl px-5 py-6",
+            "px-2 py-8",
             tone === "light" ? "border-t border-border" : "border-t border-ink-border",
           )}
         >
