@@ -1,9 +1,4 @@
 import { img } from "./images";
-import hotelTopFive from "@/assets/hotel_top_five.png.asset.json";
-import interswitch from "@/assets/interswitch.png.asset.json";
-import pdm from "@/assets/pdm_logo.png.asset.json";
-import seffyGrove from "@/assets/seffy_grove.png.asset.json";
-import shell from "@/assets/shell.png.asset.json";
 
 export const company = {
   name: "ANKA Security Services Limited",
@@ -677,10 +672,10 @@ export const navigation = [
  * once artwork is supplied and the image replaces the wordmark automatically.
  */
 export const clients: { name: string; logo?: string }[] = [
-  { name: "Hotel Top Five", logo: hotelTopFive.url },
-  { name: "Interswitch", logo: interswitch.url },
-  { name: "PDM", logo: pdm.url },
-  { name: "Seffy Grove Macadamia", logo: seffyGrove.url },
-  { name: "Shell", logo: shell.url },
+  { name: "Hotel Top Five", logo: "/images/hotel_top_five.png" },
+  { name: "Interswitch", logo: "/images/interswitch.webp" },
+  { name: "PDM", logo: "/images/pdm_logo.webp" },
+  { name: "Seffy Grove Macadamia", logo: "/images/seffy_grove.jpg" },
+  { name: "Shell", logo: "/images/shell.png" },
 ];
 
