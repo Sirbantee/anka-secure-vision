@@ -2,17 +2,6 @@
 
 # ANKA SECURITY SERVICES LIMITED
 
-## Premium Website Design & Development Master Prompt
-
-Build a complete, premium, production-ready website for **ANKA Security Services Limited**, an established Ugandan security company founded in **2015**.
-
-The supplied **ANKA Security Services Limited Company Profile, 2026 Edition** is the authoritative source of truth for all company information, services, capabilities, training information, contact details, locations and claims.
-
-Do not invent company information.
-
-Do not substitute generic security-company copy for ANKA's actual positioning.
-
-The website should transform the company's existing profile into a **high-end digital experience** that feels established, credible, sophisticated and technologically capable.
 
 ---
 
