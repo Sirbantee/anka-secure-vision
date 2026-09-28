@@ -14,7 +14,7 @@ export const img = {
   trainingDrill: "/images/detail-premium.webp",
   officersLineup: "/images/guards-lineup.jpg.jpeg",
   controlRoom: "/images/control-room-anka.jpg.jpeg",
-  k9: "/images/canine-patrol.jpg",
+  k9: "/images/canine-patrol.jpg.jpg",
   cctv: "/images/px-cctv.webp",
   classroom: "/images/px-training.webp",
   vip: "/images/px-vip.webp",
