@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
 import { company, services, telHref, waHref } from "@/content/anka";
 import { img } from "@/content/images";
 import { Container, Eyebrow } from "./Primitives";
@@ -60,8 +61,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a className="transition-colors hover:text-gold" href={waHref(company.whatsapp)}>
-                  WhatsApp {company.whatsapp}
+                <a className="inline-flex items-center gap-2 transition-colors hover:text-gold" href={waHref(company.whatsapp)} target="_blank" rel="noreferrer">
+                  <MessageCircle aria-hidden="true" className="size-4" /> WhatsApp {company.whatsapp}
                 </a>
               </li>
               <li>
@@ -89,6 +90,12 @@ export function Footer() {
             </Link>
             <Link to="/contact" className="hover:text-ink-foreground">
               Contact
+            </Link>
+            <Link to="/privacy" className="hover:text-ink-foreground">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-ink-foreground">
+              Terms
             </Link>
           </nav>
         </div>

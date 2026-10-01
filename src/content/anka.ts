@@ -15,7 +15,7 @@ export const company = {
   whatsapp: "+256 760 811 513",
   altPhone: "+254 708 908 974",
   email: "info@ankasecurity.com",
-  website: "ankasecurity.com",
+  website: "ankasecurityug.com",
   locations: ["Kampala", "Hoima"],
 } as const;
 

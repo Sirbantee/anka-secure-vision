@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { company, services, telHref, waHref } from "@/content/anka";
 import { img } from "@/content/images";
 import {
@@ -69,7 +70,8 @@ function ContactPage() {
                 <Eyebrow>Call</Eyebrow>
                 <ul className="mt-5 space-y-2 font-display text-xl tracking-tight">
                   <li>
-                    <a className="link-underline" href={telHref(company.phone)}>
+                    <a className="link-underline inline-flex items-center gap-3" href={telHref(company.phone)}>
+                      <Phone aria-hidden="true" className="size-5 text-primary" />
                       {company.phone}
                     </a>
                   </li>
@@ -83,28 +85,35 @@ function ContactPage() {
               <div className="border-t border-border pt-6">
                 <Eyebrow>WhatsApp</Eyebrow>
                 <a
-                  className="link-underline mt-5 inline-block font-display text-xl tracking-tight"
+                  className="link-underline mt-5 inline-flex items-center gap-3 font-display text-xl tracking-tight"
                   href={waHref(company.whatsapp)}
+                  target="_blank"
+                  rel="noreferrer"
                 >
+                  <MessageCircle aria-hidden="true" className="size-5 text-primary" />
                   {company.whatsapp}
                 </a>
               </div>
               <div className="border-t border-border pt-6">
                 <Eyebrow>Email</Eyebrow>
                 <a
-                  className="link-underline mt-5 inline-block font-display text-xl tracking-tight"
+                  className="link-underline mt-5 inline-flex items-center gap-3 font-display text-xl tracking-tight"
                   href={`mailto:${company.email}`}
                 >
+                  <Mail aria-hidden="true" className="size-5 text-primary" />
                   {company.email}
                 </a>
               </div>
               <div className="border-t border-border pt-6">
                 <Eyebrow>Head office</Eyebrow>
-                <address className="mt-5 space-y-1 not-italic text-muted-foreground">
+                <address className="mt-5 flex gap-3 not-italic text-muted-foreground">
+                  <MapPin aria-hidden="true" className="mt-1 size-5 shrink-0 text-primary" />
+                  <div className="space-y-1">
                   <p>{company.address.line1}</p>
                   <p>{company.address.line2}</p>
                   <p>{company.address.box}</p>
                   <p>{company.address.city}</p>
+                  </div>
                 </address>
               </div>
               <div className="border-t border-border pt-6">
@@ -234,7 +243,7 @@ function ContactForm() {
         </button>
         <p className="text-sm text-muted-foreground">
           Or WhatsApp us on{" "}
-          <a className="link-underline text-foreground" href={waHref(company.whatsapp)}>
+          <a className="link-underline text-foreground" href={waHref(company.whatsapp)} target="_blank" rel="noreferrer">
             {company.whatsapp}
           </a>
         </p>

@@ -148,6 +148,13 @@ function AboutPage() {
                   </div>
                 ))}
               </dl>
+              <Figure
+                src={img.uniformDetail}
+                alt="ANKA officer uniform, duty belt and boots"
+                ratio="4/5"
+                className="mt-8 max-w-md"
+                caption="The ANKA uniform, prepared for duty"
+              />
             </Reveal>
             <Reveal delay={120}>
               <Eyebrow>Supervision</Eyebrow>

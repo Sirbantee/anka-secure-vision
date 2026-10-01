@@ -25,6 +25,7 @@ export const img = {
   residential: "/images/px-gate.webp",
   alarm: "/images/px-response.webp",
   officerDetail: "/images/detail-premium.webp",
+  uniformDetail: "/__l5e/assets-v1/0f9cae99-placeholder/anka-uniform-detail.webp",
 
   svcGuarding: "/images/guards-formation.jpg.jpeg",
   svcEvent: "/images/px-event.webp",
