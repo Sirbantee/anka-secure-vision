@@ -40,12 +40,11 @@ export function CookieBanner() {
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 border border-ink-border bg-ink/95 p-4 text-ink-foreground shadow-2xl backdrop-blur-md sm:flex-row sm:items-center sm:gap-6 sm:p-5">
         <Cookie aria-hidden="true" className="h-5 w-5 shrink-0 text-gold" />
         <p className="text-sm leading-relaxed text-ink-muted">
-          We use essential cookies to run this site and optional ones to understand how visitors
-          use it. See our{" "}
-          <Link to="/contact" className="text-gold underline underline-offset-4">
-            contact page
+          We use essential cookies to run this site. Read our{" "}
+          <Link to="/privacy" className="text-gold underline underline-offset-4">
+            Privacy Policy
           </Link>{" "}
-          if you have questions about your data.
+          for details.
         </p>
         <div className="flex shrink-0 items-center gap-2">
           <button

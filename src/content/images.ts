@@ -1,3 +1,5 @@
+import uniformDetailAsset from "@/assets/anka-uniform-detail.webp.asset.json";
+
 /**
  * Premium photography set. Frames are art directed so no faces are visible:
  * back views, silhouettes, hands and equipment detail only.
@@ -25,6 +27,7 @@ export const img = {
   residential: "/images/px-gate.webp",
   alarm: "/images/px-response.webp",
   officerDetail: "/images/detail-premium.webp",
+  uniformDetail: uniformDetailAsset.url,
 
   svcGuarding: "/images/guards-formation.jpg.jpeg",
   svcEvent: "/images/px-event.webp",

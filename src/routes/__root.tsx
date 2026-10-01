@@ -14,6 +14,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { NotFoundScreen } from "@/components/site/NotFoundScreen";
 import { CookieBanner } from "@/components/site/CookieBanner";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { company } from "@/content/anka";
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
@@ -87,15 +88,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SecurityService",
-          "@id": "/#organization",
+           "@id": "https://ankasecurityug.com/#organization",
           name: company.name,
           alternateName: company.short,
           description: siteDescription,
           slogan: company.tagline,
           foundingDate: company.founded,
-          url: "/",
-          logo: "/favicon.png",
-          image: "/favicon.png",
+           url: "https://ankasecurityug.com/",
+           logo: "https://ankasecurityug.com/favicon.png",
+           image: "https://ankasecurityug.com/favicon.png",
           telephone: company.phone,
           email: company.email,
           priceRange: "$$",
@@ -167,6 +168,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppButton />
       <CookieBanner />
     </QueryClientProvider>
   );

@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Legal copy is stored as Markdown content and rendered through one shared legal-document component so supplied wording stays editable and consistent.
