@@ -73,6 +73,11 @@ export function Footer() {
                   {company.email}
                 </a>
               </li>
+              <li>
+                <a className="transition-colors hover:text-gold" href={`https://${company.website}`}>
+                  {company.website}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
