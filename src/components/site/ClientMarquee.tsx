@@ -38,7 +38,7 @@ export function ClientMarquee() {
                   src={c.logo}
                   alt={c.name}
                   loading="lazy"
-                  className="max-h-12 max-w-full object-contain opacity-100 drop-shadow-sm transition-transform duration-500 hover:scale-105 md:max-h-14"
+                  className="max-h-12 max-w-full object-contain opacity-100 mix-blend-multiply drop-shadow-sm transition-transform duration-500 hover:scale-105 md:max-h-14"
                 />
               ) : (
                 <span className="whitespace-nowrap font-display text-xl font-semibold uppercase tracking-[0.14em] text-foreground/45 transition-colors duration-300 hover:text-foreground">
