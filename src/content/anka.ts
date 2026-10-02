@@ -568,30 +568,37 @@ export const industries = [
   {
     name: "Hospitality",
     body: "Guest-facing premises where security has to be visible enough to reassure and discreet enough not to intrude.",
+    image: img.residential,
   },
   {
     name: "Humanitarian organisations",
     body: "Compounds, staff movement and vehicle fleets, often across more than one location.",
+    image: img.fleet,
   },
   {
     name: "Automotive",
     body: "Showrooms, yards and stock where access control and surveillance carry as much weight as guarding.",
+    image: img.svcFleet,
   },
   {
     name: "Infrastructure",
     body: "Sites with long perimeters, plant on the ground and contractors moving through daily.",
+    image: img.access,
   },
   {
     name: "Aviation",
     body: "Environments with their own protocols, where officers train to the operator's standards.",
+    image: img.vip,
   },
   {
     name: "Oil & Gas",
     body: "Controlled sites where procedure, documentation and discipline are non-negotiable.",
+    image: img.cctv,
   },
   {
     name: "NGOs",
     body: "Programme offices and field operations that need security shaped around how they work.",
+    image: img.patrol,
   },
 ];
 
