@@ -250,21 +250,30 @@ function Standards() {
 
 function Industries() {
   return (
-    <section className="bg-cream-deep py-16 md:py-20">
+    <section className="bg-green-deep py-16 text-ink-foreground md:py-20">
       <Container>
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <Eyebrow>Industries</Eyebrow>
             <Display level={2} className="mt-4 max-w-[22ch]">Security shaped around the operation.</Display>
           </div>
-          <Link to="/industries" className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em]">All industries</Link>
+          <Link to="/industries" className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em] text-gold">All industries</Link>
         </Reveal>
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry, index) => (
-            <Reveal key={industry.name} delay={Math.min(index * 45, 240)} className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary">
-              <p className="label text-primary">0{index + 1}</p>
-              <h3 className="mt-5 font-display text-lg">{industry.name}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{industry.body}</p>
+            <Reveal key={industry.name} delay={Math.min(index * 45, 240)} className="group relative min-h-72 overflow-hidden rounded-xl border border-ink-border bg-ink">
+              <img
+                src={industry.image}
+                alt=""
+                loading="lazy"
+                className="image-drift absolute inset-0 h-full w-full object-cover"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/5" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <p className="label text-gold">0{index + 1}</p>
+                <h3 className="mt-3 font-display text-xl text-ink-foreground">{industry.name}</h3>
+                <p className="mt-3 text-sm text-ink-foreground/80">{industry.body}</p>
+              </div>
             </Reveal>
           ))}
         </div>
