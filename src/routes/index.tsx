@@ -14,6 +14,7 @@ import { ActionAnchor, ActionLink, Container, Display, Eyebrow } from "@/compone
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
 import { ClientMarquee } from "@/components/site/ClientMarquee";
+import { StatsStrip } from "@/components/site/StatsStrip";
 
 const title = "ANKA Security Services | Guarding, CCTV & Response in Uganda";
 const description =
@@ -40,6 +41,7 @@ function HomePage() {
     <>
       <Hero />
       <ClientMarquee />
+      <StatsStrip />
       <ServiceCards />
       <OperationsShowcase />
       <Standards />
