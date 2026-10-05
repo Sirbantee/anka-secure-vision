@@ -76,7 +76,14 @@ export function Display({
     3: "text-[clamp(1.25rem,1.7vw,1.6rem)]",
   } as const;
   const Tag = (level === 1 ? "h1" : level === 2 ? "h2" : "h3") as "h1";
-  return <Tag className={cn(sizes[level], "font-display", className)}>{children}</Tag>;
+  return (
+    <Tag className={cn(sizes[level], "font-display", className)}>
+      {children}
+      {level === 2 ? (
+        <span aria-hidden="true" className="mt-4 block h-[2px] w-10 bg-gold" />
+      ) : null}
+    </Tag>
+  );
 }
 
 export function Lead({ children, className }: { children: ReactNode; className?: string }) {

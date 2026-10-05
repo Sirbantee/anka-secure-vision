@@ -60,21 +60,37 @@ function Hero() {
         fetchPriority="high"
         width={1408}
         height={1760}
-        className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+        className="absolute inset-0 h-full w-full animate-hero-zoom object-cover object-[62%_center]"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/60 to-ink/10" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/10" />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/30" />
 
       <Container className="relative pb-8 pt-24 md:pb-10 md:pt-32">
         <div className="max-w-3xl">
-          <Eyebrow tone="gold">Security services, Uganda</Eyebrow>
+          <div className="animate-fade-up">
+            <span aria-hidden="true" className="block h-[3px] w-12 bg-gold" />
+            <Eyebrow tone="gold" className="mt-3">
+              Security services, Uganda
+            </Eyebrow>
+          </div>
           <h1 className="mt-4 font-display text-[clamp(4rem,10vw,8rem)] font-extrabold leading-[0.82] text-ink-foreground">
-            ANKA
+            <span className="block animate-fade-up" style={{ animationDelay: "120ms" }}>
+              ANKA
+            </span>
+            <span
+              className="mt-2 block animate-fade-up text-outline-light font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-[1.05]"
+              style={{ animationDelay: "240ms" }}
+            >
+              Securing what matters
+            </span>
           </h1>
-          <p className="mt-5 max-w-md text-base text-ink-foreground/85 md:text-lg">
+          <p
+            className="mt-5 max-w-md animate-fade-up text-base text-ink-foreground/85 md:text-lg"
+            style={{ animationDelay: "360ms" }}
+          >
             Securing what matters, day and night.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "480ms" }}>
             <ActionLink to="/services">Explore services</ActionLink>
             <ActionAnchor href={telHref(company.phone)} variant="light">
               Talk to us
@@ -131,6 +147,7 @@ function ServiceCards() {
                 >
                   <img src={service.image} alt={service.imageAlt} loading="lazy" className="image-drift h-full w-full object-cover" />
                   <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/20 to-transparent" />
+                  <div aria-hidden="true" className="brand-tint" />
                   <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 md:p-6">
                     <div>
                       <p className="label text-gold">{service.index}</p>
@@ -157,8 +174,9 @@ function ServiceCards() {
 function OperationsShowcase() {
   const steps = operatingModel.slice(0, 4);
   return (
-    <section className="bg-green-deep py-16 text-ink-foreground md:py-20">
-      <Container>
+    <section className="relative overflow-hidden bg-green-deep py-16 text-ink-foreground md:py-20">
+      <div aria-hidden="true" className="bg-grid-subtle absolute inset-0" />
+      <Container className="relative">
         <Reveal className="text-center">
           <Eyebrow tone="gold">The ANKA standard</Eyebrow>
           <Display level={2} className="mx-auto mt-4 max-w-[22ch]">Protection designed around the site.</Display>
@@ -250,33 +268,45 @@ function Standards() {
 
 function Industries() {
   return (
-    <section className="bg-green-deep py-16 text-ink-foreground md:py-20">
-      <Container>
-        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <section className="relative overflow-hidden bg-ink py-16 text-ink-foreground md:py-20">
+      <div aria-hidden="true" className="bg-grid-subtle absolute inset-0" />
+      <Container className="relative">
+        <Reveal className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
-            <Eyebrow>Industries</Eyebrow>
-            <Display level={2} className="mt-4 max-w-[22ch]">Security shaped around the operation.</Display>
+            <Eyebrow tone="gold">Industries</Eyebrow>
+            <Display level={2} className="mt-4 max-w-[20ch]">Security shaped around the operation.</Display>
+            <p className="mt-6 max-w-sm text-sm text-ink-muted md:text-base">
+              Seven operating environments we work in every week. Each deployment starts from the risks of that site, not a template.
+            </p>
+            <Link
+              to="/industries"
+              className="link-underline mt-8 inline-block font-display text-sm font-bold uppercase tracking-[0.18em] text-gold"
+            >
+              All industries
+            </Link>
           </div>
-          <Link to="/industries" className="link-underline font-display text-sm font-bold uppercase tracking-[0.18em] text-gold">All industries</Link>
+          <Reveal delay={80}>
+            <ul>
+              {industries.map((industry, index) => (
+                <li key={industry.name} className="group border-b border-ink-border first:border-t">
+                  <Link to="/industries" className="flex items-start gap-5 py-5 md:gap-8 md:py-6">
+                    <span className="label shrink-0 pt-1 text-gold md:pt-2">0{index + 1}</span>
+                    <span className="min-w-0 flex-1">
+                      <h3 className="font-display text-xl font-semibold transition-colors duration-300 group-hover:text-gold md:text-2xl">
+                        {industry.name}
+                      </h3>
+                      <p className="mt-2 max-w-xl text-sm text-ink-muted md:text-[0.95rem]">{industry.body}</p>
+                    </span>
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="mt-1 size-5 shrink-0 text-gold opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:mt-2"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Reveal>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry, index) => (
-            <Reveal key={industry.name} delay={Math.min(index * 45, 240)} className="group relative min-h-72 overflow-hidden rounded-xl border border-ink-border bg-ink">
-              <img
-                src={industry.image}
-                alt=""
-                loading="lazy"
-                className="image-drift absolute inset-0 h-full w-full object-cover"
-              />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/5" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <p className="label text-gold">0{index + 1}</p>
-                <h3 className="mt-3 font-display text-xl text-ink-foreground">{industry.name}</h3>
-                <p className="mt-3 text-sm text-ink-foreground/80">{industry.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </Container>
     </section>
   );
