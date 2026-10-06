@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ComponentType, type SVGProps } from "react";
+import { BookOpenCheck, Clock3, Layers3, ShieldCheck } from "lucide-react";
+import { Container, Display, Eyebrow } from "./Primitives";
 
 /**
  * Full-width stats band under the client marquee.
@@ -6,11 +8,18 @@ import { useEffect, useRef, useState } from "react";
  * more characters (years, "24/7") render statically. Replace the values in
  * `stats` once real officer, site and response figures are confirmed.
  */
-const stats = [
-  { value: "24/7", label: "Control room" },
-  { value: "2015", label: "Operating since" },
-  { value: "11", label: "Service lines" },
-  { value: "15", label: "Basic course modules" },
+type Stat = {
+  value: string;
+  label: string;
+  detail: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+};
+
+const stats: Stat[] = [
+  { value: "24/7", label: "Control room", detail: "Continuous oversight and incident coordination", icon: Clock3 },
+  { value: "2015", label: "Operating since", detail: "A decade of disciplined security operations", icon: ShieldCheck },
+  { value: "11", label: "Service lines", detail: "Integrated protection for varied environments", icon: Layers3 },
+  { value: "15", label: "Training modules", detail: "Core modules in the basic officer course", icon: BookOpenCheck },
 ];
 
 function CountUpValue({ value }: { value: string }) {
@@ -61,25 +70,48 @@ function CountUpValue({ value }: { value: string }) {
 
 export function StatsStrip() {
   return (
-    <section className="bg-primary text-foreground" aria-label="ANKA at a glance">
-      <dl className="mx-auto grid w-full max-w-[86rem] grid-cols-2 px-6 md:grid-cols-4 md:px-10 lg:px-14">
-        {stats.map((stat, index) => (
-          <div
-            key={stat.label}
-            className={
-              index === 0
-                ? "px-2 py-10 md:py-14"
-                : "border-t border-gold/40 px-2 py-10 md:border-l md:border-t-0 md:py-14"
-            }
-          >
-            <dt className="sr-only">{stat.label}</dt>
-            <dd className="font-display text-[clamp(3rem,6vw,5rem)] font-extrabold leading-none">
-              <CountUpValue value={stat.value} />
-            </dd>
-            <dd className="label mt-4 text-foreground/75">{stat.label}</dd>
+    <section className="bg-cream-deep py-14 md:py-20" aria-labelledby="numbers-heading">
+      <Container>
+        <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10">
+          <div className="flex flex-col justify-between rounded-2xl bg-green-deep p-6 text-ink-foreground md:p-8">
+            <div>
+              <Eyebrow tone="gold">ANKA at a glance</Eyebrow>
+              <div id="numbers-heading">
+                <Display level={2} className="mt-4 max-w-[12ch] text-ink-foreground">
+                  Numbers built on readiness.
+                </Display>
+              </div>
+              <p className="mt-5 max-w-sm text-sm text-ink-muted md:text-base">
+                A clear view of the operating depth behind every ANKA deployment.
+              </p>
+            </div>
+            <ShieldCheck aria-hidden="true" className="mt-12 size-12 text-gold" strokeWidth={1.35} />
           </div>
-        ))}
-      </dl>
+
+          <dl className="grid gap-3 sm:grid-cols-2">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className={index === 0 ? "rounded-2xl border border-primary/35 bg-primary p-6 text-primary-foreground md:p-7" : "rounded-2xl border border-border bg-card p-6 md:p-7"}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <Icon aria-hidden="true" className={index === 0 ? "size-6 text-gold" : "size-6 text-primary"} strokeWidth={1.6} />
+                    <dd className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none">
+                      <CountUpValue value={stat.value} />
+                    </dd>
+                  </div>
+                  <dt className="mt-8 font-display text-lg font-semibold">{stat.label}</dt>
+                  <dd className={index === 0 ? "mt-2 text-sm text-primary-foreground/80" : "mt-2 text-sm text-muted-foreground"}>
+                    {stat.detail}
+                  </dd>
+                </div>
+              );
+            })}
+          </dl>
+        </div>
+      </Container>
     </section>
   );
 }
