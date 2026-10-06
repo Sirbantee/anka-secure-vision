@@ -10,6 +10,7 @@ import {
   telHref,
 } from "@/content/anka";
 import { img } from "@/content/images";
+import campusEntrance from "@/assets/anka-campus-entrance.png.asset.json";
 import { ActionAnchor, ActionLink, Container, Display, Eyebrow } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { CallToAction } from "@/components/site/CallToAction";
@@ -55,17 +56,17 @@ function Hero() {
   return (
     <section className="relative isolate flex min-h-[76svh] items-end overflow-hidden bg-ink pt-16 text-ink-foreground md:min-h-[82svh] md:pt-20">
       <img
-        src={img.heroMain}
-        alt="Security professional standing at the entrance of a premium commercial property at dusk"
+        src={campusEntrance.url}
+        alt="ANKA security at a secured campus entrance"
         loading="eager"
         decoding="sync"
         fetchPriority="high"
-        width={1408}
-        height={1760}
-        className="absolute inset-0 h-full w-full animate-hero-zoom object-cover object-[62%_center]"
+        width={1672}
+        height={941}
+        className="absolute inset-0 h-full w-full animate-hero-zoom object-cover object-[60%_center] md:object-center"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/10" />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/30" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-ink/30" />
 
       <Container className="relative pb-8 pt-24 md:pb-10 md:pt-32">
         <div className="max-w-3xl">
@@ -100,15 +101,15 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-3 lg:ml-auto lg:max-w-3xl">
+        <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-12 sm:gap-3 lg:ml-auto lg:max-w-3xl">
           {[
             ["Coverage", "Kampala & Hoima"],
             ["Control room", "Monitored 24/7"],
             ["Established", company.founded],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl border border-ink-border bg-ink/55 px-5 py-4 backdrop-blur-md">
-              <p className="label text-gold">{label}</p>
-              <p className="mt-2 font-display text-sm font-semibold">{value}</p>
+            <div key={label} className="min-w-0 rounded-xl border border-ink-border bg-ink/55 px-3 py-3 backdrop-blur-md sm:px-5 sm:py-4">
+              <p className="label truncate text-[0.6rem] text-gold sm:text-xs">{label}</p>
+              <p className="mt-1.5 font-display text-xs font-semibold sm:mt-2 sm:text-sm">{value}</p>
             </div>
           ))}
         </div>
