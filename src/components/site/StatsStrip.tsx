@@ -76,9 +76,11 @@ export function StatsStrip() {
           <div className="flex flex-col justify-between rounded-2xl bg-green-deep p-6 text-ink-foreground md:p-8">
             <div>
               <Eyebrow tone="gold">ANKA at a glance</Eyebrow>
-              <Display id="numbers-heading" level={2} className="mt-4 max-w-[12ch] text-ink-foreground">
-                Numbers built on readiness.
-              </Display>
+              <div id="numbers-heading">
+                <Display level={2} className="mt-4 max-w-[12ch] text-ink-foreground">
+                  Numbers built on readiness.
+                </Display>
+              </div>
               <p className="mt-5 max-w-sm text-sm text-ink-muted md:text-base">
                 A clear view of the operating depth behind every ANKA deployment.
               </p>
