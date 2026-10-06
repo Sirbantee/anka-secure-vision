@@ -65,8 +65,8 @@ function Hero() {
         height={941}
         className="absolute inset-0 h-full w-full animate-hero-zoom object-cover object-[60%_center] md:object-center"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10" />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-ink/30" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/35 to-ink/5" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-ink/20" />
 
       <Container className="relative pb-8 pt-24 md:pb-10 md:pt-32">
         <div className="max-w-3xl">
@@ -83,16 +83,10 @@ function Hero() {
               className="mt-2 block max-w-[18ch] animate-fade-up font-sans text-[clamp(1.25rem,3vw,2rem)] font-medium leading-[1.15] text-ink-foreground"
               style={{ animationDelay: "240ms" }}
             >
-              Securing what matters
+              Securing what matters, day and night.
             </span>
           </h1>
-          <p
-            className="mt-5 max-w-md animate-fade-up text-base text-ink-foreground/85 md:text-lg"
-            style={{ animationDelay: "360ms" }}
-          >
-            Securing what matters, day and night.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "480ms" }}>
+          <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "360ms" }}>
             <ActionLink to="/services">Explore services</ActionLink>
             <ActionAnchor href={telHref(company.phone)} variant="light">
               Talk to us
@@ -209,7 +203,7 @@ function OperationsShowcase() {
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
           <Reveal className="media-card group min-h-[25rem] border-ink-border">
-            <img src={img.officerDetail} alt="A professional security officer patrolling a premium property" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover object-center" />
+            <img src="/images/px-patrol.webp" alt="A professional security officer patrolling a premium property" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover object-center" />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <Eyebrow tone="gold">On the ground</Eyebrow>
