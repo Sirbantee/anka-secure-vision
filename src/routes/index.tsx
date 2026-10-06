@@ -101,15 +101,15 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-3 lg:ml-auto lg:max-w-3xl">
+        <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-12 sm:gap-3 lg:ml-auto lg:max-w-3xl">
           {[
             ["Coverage", "Kampala & Hoima"],
             ["Control room", "Monitored 24/7"],
             ["Established", company.founded],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl border border-ink-border bg-ink/55 px-5 py-4 backdrop-blur-md">
-              <p className="label text-gold">{label}</p>
-              <p className="mt-2 font-display text-sm font-semibold">{value}</p>
+            <div key={label} className="min-w-0 rounded-xl border border-ink-border bg-ink/55 px-3 py-3 backdrop-blur-md sm:px-5 sm:py-4">
+              <p className="label truncate text-[0.6rem] text-gold sm:text-xs">{label}</p>
+              <p className="mt-1.5 font-display text-xs font-semibold sm:mt-2 sm:text-sm">{value}</p>
             </div>
           ))}
         </div>
