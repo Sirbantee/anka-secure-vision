@@ -71,8 +71,7 @@ function Hero() {
       <Container className="relative pb-8 pt-24 md:pb-10 md:pt-32">
         <div className="max-w-3xl">
           <div className="animate-fade-up">
-            <span aria-hidden="true" className="block h-[3px] w-12 bg-gold" />
-            <Eyebrow tone="gold" className="mt-3">
+            <Eyebrow tone="gold">
               Security services, Uganda
             </Eyebrow>
           </div>
@@ -81,7 +80,7 @@ function Hero() {
               ANKA
             </span>
             <span
-              className="mt-2 block animate-fade-up text-outline-light font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-[1.05]"
+              className="mt-2 block max-w-[18ch] animate-fade-up font-sans text-[clamp(1.25rem,3vw,2rem)] font-medium leading-[1.15] text-ink-foreground"
               style={{ animationDelay: "240ms" }}
             >
               Securing what matters
@@ -210,7 +209,7 @@ function OperationsShowcase() {
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
           <Reveal className="media-card group min-h-[25rem] border-ink-border">
-            <img src={img.patrol} alt="Security officers conducting a disciplined perimeter patrol" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover" />
+            <img src={img.officerDetail} alt="A professional security officer patrolling a premium property" loading="lazy" className="image-drift absolute inset-0 h-full w-full object-cover object-center" />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <Eyebrow tone="gold">On the ground</Eyebrow>
